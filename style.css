@@ -1,5 +1,4 @@
-
-
+/* ===== GLOBAL ===== */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -12,7 +11,7 @@ header {
   background: #222;
   color: #fff;
   padding: 20px;
-  text-align: center;
+  text-align: center;          /* centers <h1> + tagline */
 }
 
 nav a {
@@ -31,13 +30,6 @@ section {
   margin-bottom: 40px;
 }
 
-.project {
-  border: 1px solid #ddd;
-  padding: 10px;
-  margin: 10px 0;
-  background: #fff;
-}
-
 footer {
   background: #f4f4f4;
   text-align: center;
@@ -45,6 +37,26 @@ footer {
   font-size: 0.9em;
 }
 
+/* ===== WEB PROJECT GRID (ALWAYS 2 PER ROW) ===== */
+.web-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);  /* exactly 2 columns */
+  gap: 20px;
+}
+
+.web-gallery .project {
+  border: 1px solid #ddd;
+  padding: 15px;
+  background: #fff;
+  box-shadow: 1px 1px 4px rgba(0,0,0,0.05);
+}
+
+.web-gallery .project h3 {
+  text-align: center;
+  margin-top: 0.2em;
+}
+
+/* ===== DESIGN GRID (SQUARE THUMBS) ===== */
 .design-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -55,7 +67,7 @@ footer {
   background: #fff;
   border: 1px solid #ddd;
   text-align: center;
-  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 1px 1px 4px rgba(0,0,0,0.05);
   padding: 10px;
   transition: transform 0.2s;
 }
@@ -75,30 +87,3 @@ footer {
 .design-item a {
   display: block;
 }
-
-.web-gallery {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); 
-  gap: 20px;                               
-}
-
-.web-gallery .project {
-  border: 1px solid #ddd;
-  padding: 15px;
-  background: #fff;
-  box-shadow: 1px 1px 4px rgba(0,0,0,0.05);
-}
-.web-gallery .project h3 {
-  text-align: center;
-  margin-top: 0.2em;
-}
-header h1 {
-  text-align: center;
-}
-
-@media (max-width: 600px) {
-  .web-gallery {
-    grid-template-columns: 1fr;
-  }
-}
-
