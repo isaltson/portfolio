@@ -10,44 +10,44 @@ body {
 header {
   background: #222;
   color: #fff;
-  padding: 20 px;
+  padding: 20px;
   text-align: center;
 }
 
 nav a {
   color: #ffc107;
-  margin: 0 10 px;
+  margin: 0 10px;
   text-decoration: none;
 }
 
 main {
-  max-width: 1000 px;
+  max-width: 1000px;
   margin: auto;
   padding: 20px;
 }
 
 section {
-  margin-bottom: 40 px;
+  margin-bottom: 40px;
 }
 
 .project {
-  border: 1 px solid #ddd;
-  padding: 10 px;
-  margin: 10 px 0;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px 0;
   background: #fff;
 }
 
 footer {
   background: #f4f4f4;
   text-align: center;
-  padding: 10 px;
-  font-size: 0.9 em;
+  padding: 10px;
+  font-size: 0.9em;
 }
 
 .design-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20 px;
+  gap: 20px;
 }
 
 .design-item {
