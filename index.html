@@ -6,7 +6,7 @@
   <title>Isaac Saltson - Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    
+    /* Base Styles */
     :root {
       --primary: #2c3e50;
       --secondary: #f39c12;
@@ -32,6 +32,7 @@
       overflow-x: hidden;
     }
     
+    /* Header & Navigation */
     header {
       background: var(--primary);
       color: white;
@@ -371,12 +372,12 @@
       box-shadow: 0 6px 12px rgba(0,0,0,0.15);
     }
     
-  
+    /* Hidden projects */
     .hidden {
       display: none;
     }
     
-    
+    /* Mobile-specific styles */
     @media (max-width: 768px) {
       /* Mobile navigation */
       nav {
@@ -395,7 +396,7 @@
         display: block;
       }
       
-    
+      /* Adjust sections */
       main {
         padding: 1.5rem 1rem;
       }
@@ -449,14 +450,14 @@
       }
     }
     
-   
+    /* Desktop-specific adjustments */
     @media (min-width: 769px) {
-     
+      /* Web gallery - 2 columns on desktop */
       .web-gallery {
         grid-template-columns: repeat(2, 1fr);
       }
       
-      /* Design gallery - 3 columns on desktop */
+      /* Design gallery - 4 columns on desktop */
       .design-gallery {
         grid-template-columns: repeat(4, 1fr);
       }
@@ -474,13 +475,6 @@
       /* Show desktop navigation */
       nav {
         display: flex;
-      }
-    }
-    
-    @media (min-width: 992px) {
-      /* Design gallery - 4 columns on larger screens */
-      .design-gallery {
-        grid-template-columns: repeat(4, 1fr);
       }
     }
     
@@ -524,7 +518,7 @@
       <h2>Web Development Projects</h2>
 
       <div class="web-gallery">
-        
+        <!-- Initial visible projects -->
         <article class="project">
           <div class="tech-badge">PHP + JS</div>
           <h3>Secure File Sharing</h3>
@@ -543,6 +537,7 @@
           </a>
         </article>
 
+        <!-- Hidden projects -->
         <article class="project hidden">
           <div class="tech-badge">React + Node</div>
           <h3>E-Commerce Platform</h3>
@@ -619,8 +614,7 @@
           </div>
         </div>
         
-        <!-- Hidden projects -->
-        <div class="design-item hidden">
+        <div class="design-item">
           <div class="design-image">
             <img src="https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Slide Deck Design">
           </div>
@@ -630,6 +624,7 @@
           </div>
         </div>
         
+        <!-- Hidden projects -->
         <div class="design-item hidden">
           <div class="design-image">
             <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Brand Identity">
@@ -657,6 +652,16 @@
           <div class="design-info">
             <p>Product packaging design</p>
             <div class="design-tool">Photoshop</div>
+          </div>
+        </div>
+        
+        <div class="design-item hidden">
+          <div class="design-image">
+            <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Infographic">
+          </div>
+          <div class="design-info">
+            <p>Data visualization infographic</p>
+            <div class="design-tool">Illustrator</div>
           </div>
         </div>
       </div>
@@ -779,24 +784,34 @@
       }
     });
     
-    // Show more designs functionality
+    // Show more designs functionality - shows 4 at a time
     const showMoreDesignBtn = document.getElementById('showMoreDesign');
     const designItems = document.querySelectorAll('#design .design-item');
-    let designVisible = 3;
+    let designVisible = 4; // Initial visible designs
+    
+    // Hide all designs beyond the initial 4
+    for (let i = designVisible; i < designItems.length; i++) {
+      designItems[i].classList.add('hidden');
+    }
     
     showMoreDesignBtn.addEventListener('click', () => {
-      // Show next 3 designs
-      for (let i = designVisible; i < designVisible + 3 && i < designItems.length; i++) {
+      // Show next 4 designs
+      for (let i = designVisible; i < designVisible + 4 && i < designItems.length; i++) {
         designItems[i].classList.remove('hidden');
       }
       
-      designVisible += 3;
+      designVisible += 4;
       
       // Hide button if all designs are visible
       if (designVisible >= designItems.length) {
         showMoreDesignBtn.style.display = 'none';
       }
     });
+    
+    // Hide design show more button if there are 4 or fewer designs
+    if (designItems.length <= 4) {
+      showMoreDesignBtn.style.display = 'none';
+    }
   </script>
 </body>
 </html>
