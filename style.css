@@ -101,17 +101,34 @@ section h2 {
   text-align: center;
 }
 /* ═════ MOBILE‑ONLY TWEAKS (≤ 600 px) ═════ */
+/* ═════════ MOBILE TWEAKS (≤ 600 px) ═════════ */
 @media (max-width: 600px) {
+
+  /* 1 ── Graphic Design: 3 thumbnails per row */
   .design-gallery {
-    grid-template-columns: repeat(3, 1fr);  /* force 3 per row on small screens */
-    gap: 10px;                               /* tighter spacing for mobile */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;                 /* tighter spacing on small screens */
   }
-
   .design-item img {
-    max-height: 100px;                      /* shrink image height if needed */
+    max-height: 140px;         /* adjust so captions don’t push below fold */
+  }
+  .design-item p {
+    font-size: 0.85em;         /* keep captions readable */
   }
 
-  .design-item p {
-    font-size: 0.8em;                       /* reduce caption size for mobile */
+  /* 2 ── Web‑Dev: make each card wider & text larger */
+  .web-gallery {
+    justify-items: center;     /* center cards horizontally */
+  }
+  .web-gallery .project {
+    width: 94%;                /* slightly narrower than full width */
+    padding: 15px;             /* restore comfy space inside card */
+    font-size: 1em;            /* larger text for readability */
+    line-height: 1.5;
+  }
+  .web-gallery .project h3 {
+    font-size: 1.2em;          /* headline a bit bigger */
+    margin-bottom: 8px;
   }
 }
+
