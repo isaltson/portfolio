@@ -100,10 +100,8 @@ h3{
 section h2 {
   text-align: center;
 }
-/* ═══ iPhone / Small Mobile (≤ 430 px) ── 2 cards per row + cover image ═══ */
-/* ═════ iPhone + Small Mobile Screens (≤ 430px) — Use 2 per row ═════ */
 /* ═════ iPhone & small phones (≤ 430 px) — large 2‑per‑row thumbs ═════ */
-@media (max-width: 600px) {
+@media (max-width: 430px) {
 
   /* use almost the whole screen: 2 columns, tiny gap */
   .design-gallery {
