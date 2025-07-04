@@ -39,6 +39,7 @@
       padding: 1.5rem 1rem;
       text-align: center;
       position: relative;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
     
     .header-content {
@@ -94,6 +95,15 @@
       padding-bottom: 1.5rem;
     }
     
+    h1, h2, h3 {
+      font-weight: 600;
+    }
+    
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+    
     h2 {
       text-align: center;
       margin-bottom: 2rem;
@@ -113,6 +123,11 @@
       height: 4px;
       background: var(--secondary);
       border-radius: 2px;
+    }
+    
+    h3 {
+      font-size: 1.2rem;
+      margin: 0.5em 0;
     }
     
     /* Web Gallery */
@@ -190,6 +205,7 @@
       overflow: hidden;
       box-shadow: 0 5px 15px rgba(0,0,0,0.05);
       transition: all 0.3s ease;
+      cursor: pointer;
     }
     
     .design-item:hover {
@@ -377,6 +393,94 @@
       display: none;
     }
     
+    /* Lightbox Styles */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    
+    .lightbox.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+    
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 90%;
+      position: relative;
+    }
+    
+    .lightbox-image {
+      max-width: 100%;
+      max-height: 80vh;
+      border-radius: 8px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+    }
+    
+    .lightbox-caption {
+      color: white;
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 1.1rem;
+    }
+    
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: white;
+      font-size: 2rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+    
+    .lightbox-close:hover {
+      color: var(--secondary);
+    }
+    
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+    
+    .lightbox-btn {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+    
+    .lightbox-btn:hover {
+      background: var(--secondary);
+      color: var(--primary);
+    }
+    
     /* Mobile-specific styles */
     @media (max-width: 768px) {
       /* Mobile navigation */
@@ -390,6 +494,9 @@
       
       nav.active {
         display: flex;
+      animation: fadeIn 0.3s;
+      position: relative;
+        z-index: 5;
       }
       
       .mobile-menu-btn {
@@ -448,6 +555,17 @@
       .excel-link {
         padding: 0.9rem;
       }
+      
+      /* Lightbox adjustments */
+      .lightbox-content {
+        max-width: 95%;
+      }
+      
+      .lightbox-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+      }
     }
     
     /* Desktop-specific adjustments */
@@ -492,6 +610,11 @@
     
     section {
       animation: fadeInUp 0.6s ease-out forwards;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
   </style>
 </head>
@@ -555,24 +678,6 @@
             <i class="fas fa-external-link-alt"></i> Live Demo
           </a>
         </article>
-        
-        <article class="project hidden">
-          <div class="tech-badge">React Native</div>
-          <h3>Fitness Tracker Mobile App</h3>
-          <p>Mobile application for tracking workouts, nutrition, and progress.</p>
-          <a href="#" target="_blank">
-            <i class="fas fa-external-link-alt"></i> Live Demo
-          </a>
-        </article>
-        
-        <article class="project hidden">
-          <div class="tech-badge">Angular + MongoDB</div>
-          <h3>Customer Relationship Manager</h3>
-          <p>Enterprise CRM solution with analytics dashboard and reporting tools.</p>
-          <a href="#" target="_blank">
-            <i class="fas fa-external-link-alt"></i> Live Demo
-          </a>
-        </article>
       </div>
       
       <button class="show-more-btn" id="showMoreWeb">
@@ -583,10 +688,10 @@
     <section id="design">
       <h2>Graphic Design Projects</h2>
       <div class="design-gallery">
-        <!-- Initial visible projects -->
-        <div class="design-item">
+        <!-- Design projects with lightbox functionality -->
+        <div class="design-item" data-image="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" data-caption="Event flyer for youth tech workshop · Canva">
           <div class="design-image">
-            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Promotional Flyer">
+            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80" alt="Promotional Flyer">
           </div>
           <div class="design-info">
             <p>Event flyer for youth tech workshop</p>
@@ -594,19 +699,19 @@
           </div>
         </div>
 
-        <div class="design-item">
+        <div class="design-item" data-image="https://images.unsplash.com/photo-1558494940-bf84fe2c01c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" data-caption="Cybersecurity awareness poster · Photoshop">
           <div class="design-image">
-            <img src="img/1.jpg" alt="Cybersecurity Poster">
+            <img src="https://images.unsplash.com/photo-1558494940-bf84fe2c01c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80" alt="Cybersecurity Poster">
           </div>
           <div class="design-info">
-            <p>Promotional Flyer for Simple_E Clothing</p>
+            <p>Cybersecurity awareness poster</p>
             <div class="design-tool">Photoshop</div>
           </div>
         </div>
 
-        <div class="design-item">
+        <div class="design-item" data-image="https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" data-caption="Brand logo concept for GhanaRanks · Illustrator">
           <div class="design-image">
-            <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Logo Concept">
+            <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80" alt="Logo Concept">
           </div>
           <div class="design-info">
             <p>Brand logo concept for GhanaRanks</p>
@@ -614,20 +719,20 @@
           </div>
         </div>
         
-        <div class="design-item">
+        <div class="design-item" data-image="https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" data-caption="Presentation deck design · PowerPoint">
           <div class="design-image">
-            <img src="https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Slide Deck Design">
+            <img src="https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80" alt="Slide Deck Design">
           </div>
           <div class="design-info">
-            <p>Corporate presentation deck design</p>
+            <p>Presentation deck design</p>
             <div class="design-tool">PowerPoint</div>
           </div>
         </div>
         
         <!-- Hidden projects -->
-        <div class="design-item hidden">
+        <div class="design-item hidden" data-image="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" data-caption="Brand identity for startup company · Illustrator">
           <div class="design-image">
-            <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Brand Identity">
+            <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80" alt="Brand Identity">
           </div>
           <div class="design-info">
             <p>Brand identity for startup company</p>
@@ -635,9 +740,9 @@
           </div>
         </div>
         
-        <div class="design-item hidden">
+        <div class="design-item hidden" data-image="https://images.unsplash.com/photo-1602934445884-da0fa1c9d3b3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" data-caption="Social media campaign graphics · Canva">
           <div class="design-image">
-            <img src="https://images.unsplash.com/photo-1602934445884-da0fa1c9d3b3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Social Media Graphics">
+            <img src="https://images.unsplash.com/photo-1602934445884-da0fa1c9d3b3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80" alt="Social Media Graphics">
           </div>
           <div class="design-info">
             <p>Social media campaign graphics</p>
@@ -645,9 +750,9 @@
           </div>
         </div>
         
-        <div class="design-item hidden">
+        <div class="design-item hidden" data-image="https://images.unsplash.com/photo-1586232702178-f044c5f4d4b7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" data-caption="Product packaging design · Photoshop">
           <div class="design-image">
-            <img src="https://images.unsplash.com/photo-1586232702178-f044c5f4d4b7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Product Packaging">
+            <img src="https://images.unsplash.com/photo-1586232702178-f044c5f4d4b7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80" alt="Product Packaging">
           </div>
           <div class="design-info">
             <p>Product packaging design</p>
@@ -655,9 +760,9 @@
           </div>
         </div>
         
-        <div class="design-item hidden">
+        <div class="design-item hidden" data-image="https://images.unsplash.com/photo-1556228720-195a672e8a03?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" data-caption="Data visualization infographic · Illustrator">
           <div class="design-image">
-            <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Infographic">
+            <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80" alt="Infographic">
           </div>
           <div class="design-info">
             <p>Data visualization infographic</p>
@@ -720,6 +825,25 @@
       &copy; 2023 Isaac Saltson. All rights reserved.
     </div>
   </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">
+      <i class="fas fa-times"></i>
+    </button>
+    <div class="lightbox-nav">
+      <button class="lightbox-btn" id="lightboxPrev">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="lightbox-btn" id="lightboxNext">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+    <div class="lightbox-content">
+      <img class="lightbox-image" id="lightboxImage" src="" alt="">
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
 
   <script>
     // Mobile menu toggle
@@ -812,6 +936,83 @@
     if (designItems.length <= 4) {
       showMoreDesignBtn.style.display = 'none';
     }
+    
+    // Lightbox functionality
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const lightboxPrev = document.getElementById('lightboxPrev');
+    const lightboxNext = document.getElementById('lightboxNext');
+    
+    // Get all design items that open the lightbox
+    const galleryItems = document.querySelectorAll('.design-item');
+    let currentIndex = 0;
+    
+    // Function to open lightbox
+    function openLightbox(index) {
+      const item = galleryItems[index];
+      const imageUrl = item.getAttribute('data-image');
+      const caption = item.getAttribute('data-caption');
+      
+      lightboxImage.src = imageUrl;
+      lightboxCaption.textContent = caption;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Prevent scrolling
+      currentIndex = index;
+    }
+    
+    // Add click event to each gallery item
+    galleryItems.forEach((item, index) => {
+      item.addEventListener('click', () => {
+        openLightbox(index);
+      });
+    });
+    
+    // Close lightbox
+    lightboxClose.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = 'auto'; // Enable scrolling
+    });
+    
+    // Close lightbox when clicking outside the image
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    });
+    
+    // Navigation between images
+    lightboxPrev.addEventListener('click', (e) => {
+      e.stopPropagation();
+      currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+      openLightbox(currentIndex);
+    });
+    
+    lightboxNext.addEventListener('click', (e) => {
+      e.stopPropagation();
+      currentIndex = (currentIndex + 1) % galleryItems.length;
+      openLightbox(currentIndex);
+    });
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (lightbox.classList.contains('active')) {
+        if (e.key === 'Escape') {
+          lightbox.classList.remove('active');
+          document.body.style.overflow = 'auto';
+        }
+        if (e.key === 'ArrowLeft') {
+          currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+          openLightbox(currentIndex);
+        }
+        if (e.key === 'ArrowRight') {
+          currentIndex = (currentIndex + 1) % galleryItems.length;
+          openLightbox(currentIndex);
+        }
+      }
+    });
   </script>
 </body>
 </html>
