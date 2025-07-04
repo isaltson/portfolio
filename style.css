@@ -102,27 +102,16 @@ section h2 {
 }
 /* ═════ MOBILE‑ONLY TWEAKS (≤ 600 px) ═════ */
 @media (max-width: 600px) {
-
-  /* 1 ── Graphic‑Design: 2 cards per row, bigger thumbs */
   .design-gallery {
-    grid-template-columns: 1fr 1fr;   /* exactly 2 columns */
-    gap: 12px;                        /* slightly narrower gap */
-  }
-  .design-item img {
-    max-height: 180px;               /* thumbnail still visible but larger */
-  }
-  .design-item p {
-    font-size: 0.9em;                /* bump caption size for readability */
+    grid-template-columns: repeat(3, 1fr);  /* force 3 per row on small screens */
+    gap: 10px;                               /* tighter spacing for mobile */
   }
 
-  /* 2 ── Web‑Dev cards: compact box on phones */
-  .web-gallery .project {
-    padding: 10px;      /* was 15px */
-    font-size: 0.9em;   /* smaller body text */
-    line-height: 1.4;
+  .design-item img {
+    max-height: 100px;                      /* shrink image height if needed */
   }
-  .web-gallery .project h3 {
-    font-size: 1.1em;   /* slightly smaller heading */
-    margin-bottom: 6px;
+
+  .design-item p {
+    font-size: 0.8em;                       /* reduce caption size for mobile */
   }
 }
