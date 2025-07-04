@@ -101,44 +101,68 @@ section h2 {
   text-align: center;
 }
 /* ═════ iPhone & small phones (≤ 430 px) — large 2‑per‑row thumbs ═════ */
+/* ─── GENERAL RESET FOR MOBILE ─── */
 @media (max-width: 430px) {
 
-  /* use almost the whole screen: 2 columns, tiny gap */
+  /* use full screen width: 2 cards, zero side gutters like Alibaba */
   .design-gallery {
-    grid-template-columns: repeat(2, 1fr);   /* 2 cards per row */
-    gap: 6px;                                /* much slimmer gap */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);   /* 2 across */
+    gap: 4px;                                /* tiny gap */
+    padding: 0;                              /* no outer padding */
   }
 
-  /* card container: no inner padding so image can fill width */
+  /* CARD */
   .design-item {
-    padding: 0;              /* remove inner whitespace */
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;        /* clip child corners */
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    font-size: 0.88rem;      /* Alibaba mobile font */
   }
 
-  /* image: larger & edge‑to‑edge */
+  /* THUMBNAIL (wrapper) */
+  .design-item .thumb,
+  .design-item a {           /* ← fallback if you kept <a><img> */
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;     /* perfect square */
+    background: #f5f5f5;
+  }
+
+  /* IMAGE */
   .design-item img {
     width: 100%;
-    height: 200px;           /* taller picture — adjust if you want more */
-    object-fit: cover;       /* crop edges so it fills */
-    object-position: center; /* center the crop */
-    display: block;
-    border-radius: 6px 6px 0 0;
+    height: 100%;
+    object-fit: cover;       /* fills square, crops endlessly */
+    object-position: center;
   }
 
-  /* caption: small but readable */
+  /* CAPTION */
   .design-item p {
-    font-size: 0.9em;
-    padding: 6px 4px;
+    margin: 6px 6px 10px;
+    line-height: 1.2;
+    height: calc(1.2em * 2);        /* lock to two lines */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;          /* show max 2 lines then … */
+    -webkit-box-orient: vertical;
   }
 
-  /* widen & center Web‑Dev cards, but keep them compact */
+  /* WEB‑DEV cards: keep comfy but not giant */
   .web-gallery .project {
-    width: 95%;
-    padding: 14px;
-    font-size: 1em;
+    width: 100%;
+    padding: 14px 12px;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    border-radius: 6px;
   }
   .web-gallery .project h3 {
-    font-size: 1.2em;
+    font-size: 1.1rem;
     margin-bottom: 6px;
   }
 }
+
 
