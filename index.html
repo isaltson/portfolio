@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Isaac Saltson – Portfolio</title>
+  <title>Isaac Saltson - Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     /* Base Styles */
@@ -350,6 +350,33 @@
       z-index: 10;
     }
     
+    /* Show More/Less Button */
+    .show-more-btn {
+      display: block;
+      margin: 2rem auto 0;
+      padding: 0.8rem 2rem;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .show-more-btn:hover {
+      background: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+    
+    /* Hidden projects */
+    .hidden {
+      display: none;
+    }
+    
     /* Mobile-specific styles */
     @media (max-width: 768px) {
       /* Mobile navigation */
@@ -498,6 +525,7 @@
       <h2>Web Development Projects</h2>
 
       <div class="web-gallery">
+        <!-- Initial visible projects -->
         <article class="project">
           <div class="tech-badge">PHP + JS</div>
           <h3>Secure File Sharing</h3>
@@ -516,7 +544,8 @@
           </a>
         </article>
 
-        <article class="project">
+        <!-- Hidden projects -->
+        <article class="project hidden">
           <div class="tech-badge">React + Node</div>
           <h3>E-Commerce Platform</h3>
           <p>Full-featured online store with payment processing and inventory management.</p>
@@ -524,12 +553,44 @@
             <i class="fas fa-external-link-alt"></i> Live Demo
           </a>
         </article>
+        
+        <article class="project hidden">
+          <div class="tech-badge">Vue.js + Firebase</div>
+          <h3>Task Management App</h3>
+          <p>Collaborative task management system with real-time updates and notifications.</p>
+          <a href="#" target="_blank">
+            <i class="fas fa-external-link-alt"></i> Live Demo
+          </a>
+        </article>
+        
+        <article class="project hidden">
+          <div class="tech-badge">React Native</div>
+          <h3>Fitness Tracker Mobile App</h3>
+          <p>Mobile application for tracking workouts, nutrition, and progress.</p>
+          <a href="#" target="_blank">
+            <i class="fas fa-external-link-alt"></i> Live Demo
+          </a>
+        </article>
+        
+        <article class="project hidden">
+          <div class="tech-badge">Angular + MongoDB</div>
+          <h3>Customer Relationship Manager</h3>
+          <p>Enterprise CRM solution with analytics dashboard and reporting tools.</p>
+          <a href="#" target="_blank">
+            <i class="fas fa-external-link-alt"></i> Live Demo
+          </a>
+        </article>
       </div>
+      
+      <button class="show-more-btn" id="showMoreWeb">
+        <i class="fas fa-plus-circle"></i> Show More Projects
+      </button>
     </section>
 
     <section id="design">
       <h2>Graphic Design Projects</h2>
       <div class="design-gallery">
+        <!-- Initial visible projects -->
         <div class="design-item">
           <div class="design-image">
             <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Promotional Flyer">
@@ -559,8 +620,9 @@
             <div class="design-tool">Illustrator</div>
           </div>
         </div>
-
-        <div class="design-item">
+        
+        <!-- Hidden projects -->
+        <div class="design-item hidden">
           <div class="design-image">
             <img src="https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Slide Deck Design">
           </div>
@@ -569,7 +631,41 @@
             <div class="design-tool">PowerPoint</div>
           </div>
         </div>
+        
+        <div class="design-item hidden">
+          <div class="design-image">
+            <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Brand Identity">
+          </div>
+          <div class="design-info">
+            <p>Brand identity for startup company</p>
+            <div class="design-tool">Illustrator</div>
+          </div>
+        </div>
+        
+        <div class="design-item hidden">
+          <div class="design-image">
+            <img src="https://images.unsplash.com/photo-1602934445884-da0fa1c9d3b3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Social Media Graphics">
+          </div>
+          <div class="design-info">
+            <p>Social media campaign graphics</p>
+            <div class="design-tool">Canva</div>
+          </div>
+        </div>
+        
+        <div class="design-item hidden">
+          <div class="design-image">
+            <img src="https://images.unsplash.com/photo-1586232702178-f044c5f4d4b7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Product Packaging">
+          </div>
+          <div class="design-info">
+            <p>Product packaging design</p>
+            <div class="design-tool">Photoshop</div>
+          </div>
+        </div>
       </div>
+      
+      <button class="show-more-btn" id="showMoreDesign">
+        <i class="fas fa-plus-circle"></i> Show More Designs
+      </button>
     </section>
     
     <section id="excel">
@@ -664,6 +760,44 @@
           });
         }
       });
+    });
+    
+    // Show more projects functionality
+    const showMoreWebBtn = document.getElementById('showMoreWeb');
+    const webProjects = document.querySelectorAll('#web .project');
+    let webVisible = 2;
+    
+    showMoreWebBtn.addEventListener('click', () => {
+      // Show next 2 projects
+      for (let i = webVisible; i < webVisible + 2 && i < webProjects.length; i++) {
+        webProjects[i].classList.remove('hidden');
+      }
+      
+      webVisible += 2;
+      
+      // Hide button if all projects are visible
+      if (webVisible >= webProjects.length) {
+        showMoreWebBtn.style.display = 'none';
+      }
+    });
+    
+    // Show more designs functionality
+    const showMoreDesignBtn = document.getElementById('showMoreDesign');
+    const designItems = document.querySelectorAll('#design .design-item');
+    let designVisible = 3;
+    
+    showMoreDesignBtn.addEventListener('click', () => {
+      // Show next 3 designs
+      for (let i = designVisible; i < designVisible + 3 && i < designItems.length; i++) {
+        designItems[i].classList.remove('hidden');
+      }
+      
+      designVisible += 3;
+      
+      // Hide button if all designs are visible
+      if (designVisible >= designItems.length) {
+        showMoreDesignBtn.style.display = 'none';
+      }
     });
   </script>
 </body>
