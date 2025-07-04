@@ -6,7 +6,7 @@
   <title>Isaac Saltson - Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /* Base Styles */
+    
     :root {
       --primary: #2c3e50;
       --secondary: #f39c12;
@@ -32,7 +32,6 @@
       overflow-x: hidden;
     }
     
-    /* Header & Navigation */
     header {
       background: var(--primary);
       color: white;
@@ -372,12 +371,12 @@
       box-shadow: 0 6px 12px rgba(0,0,0,0.15);
     }
     
-    /* Hidden projects */
+  
     .hidden {
       display: none;
     }
     
-    /* Mobile-specific styles */
+    
     @media (max-width: 768px) {
       /* Mobile navigation */
       nav {
@@ -396,7 +395,7 @@
         display: block;
       }
       
-      /* Adjust sections */
+    
       main {
         padding: 1.5rem 1rem;
       }
@@ -450,16 +449,16 @@
       }
     }
     
-    /* Desktop-specific adjustments */
+   
     @media (min-width: 769px) {
-      /* Web gallery - 2 columns on desktop */
+     
       .web-gallery {
         grid-template-columns: repeat(2, 1fr);
       }
       
       /* Design gallery - 3 columns on desktop */
       .design-gallery {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
       }
       
       /* Contact info - 2 columns on desktop */
@@ -525,7 +524,7 @@
       <h2>Web Development Projects</h2>
 
       <div class="web-gallery">
-        <!-- Initial visible projects -->
+        
         <article class="project">
           <div class="tech-badge">PHP + JS</div>
           <h3>Secure File Sharing</h3>
@@ -544,7 +543,6 @@
           </a>
         </article>
 
-        <!-- Hidden projects -->
         <article class="project hidden">
           <div class="tech-badge">React + Node</div>
           <h3>E-Commerce Platform</h3>
