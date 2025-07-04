@@ -78,12 +78,13 @@ footer {
 }
 
 .design-item img {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
+  width: 100%;              /* fills the width of the box */
+  height: 250px;            /* fixed height for visual uniformity */
+  object-fit: cover;        /* crop & zoom to fill box cleanly */
   border-radius: 6px;
-  transition: 0.3s ease;
+  display: block;
 }
+
 
 .design-item a {
   display: block;
