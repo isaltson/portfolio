@@ -100,35 +100,39 @@ h3{
 section h2 {
   text-align: center;
 }
-/* ═════ MOBILE‑ONLY TWEAKS (≤ 600 px) ═════ */
-/* ═════════ MOBILE TWEAKS (≤ 600 px) ═════════ */
-@media (max-width: 600px) {
+/* ═════ iPhone 11 & similar (≤ 430 px) ═════ */
+@media (max-width: 430px) {
 
-  /* 1 ── Graphic Design: 3 thumbnails per row */
+  /* ─── Graphic‑Design: 3 thumbnails per row ─── */
   .design-gallery {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;                 /* tighter spacing on small screens */
-  }
-  .design-item img {
-    max-height: 140px;         /* adjust so captions don’t push below fold */
-  }
-  .design-item p {
-    font-size: 0.85em;         /* keep captions readable */
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;  /* 3 across */
+    gap: 12px !important;
   }
 
-  /* 2 ── Web‑Dev: make each card wider & text larger */
+  .design-item img {
+    max-height: 120px !important;   /* all thumbs same height */
+    object-fit: contain !important; /* show full picture */
+    margin: 0 auto !important;      /* center if narrower */
+  }
+
+  .design-item p {
+    font-size: 0.85em !important;   /* readable on phone */
+  }
+
+  /* ─── Web‑Dev cards: wider & compact ─── */
   .web-gallery {
-    justify-items: center;     /* center cards horizontally */
+    justify-items: center !important;   /* center cards */
   }
+
   .web-gallery .project {
-    width: 94%;                /* slightly narrower than full width */
-    padding: 15px;             /* restore comfy space inside card */
-    font-size: 1em;            /* larger text for readability */
-    line-height: 1.5;
+    width: 94% !important;          /* nearly full width */
+    padding: 12px !important;       /* slim padding */
+    font-size: 0.95em !important;   /* comfortable text */
   }
+
   .web-gallery .project h3 {
-    font-size: 1.2em;          /* headline a bit bigger */
-    margin-bottom: 8px;
+    font-size: 1.15em !important;   /* heading readable */
+    margin-bottom: 6px !important;
   }
 }
-
