@@ -4,41 +4,525 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Isaac Saltson – Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Base Styles */
+    :root {
+      --primary: #2c3e50;
+      --secondary: #f39c12;
+      --accent: #3498db;
+      --light: #f8f9fa;
+      --dark: #222;
+      --gray: #e0e0e0;
+      --text: #333;
+      --text-light: #777;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Roboto, -apple-system, sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    /* Header & Navigation */
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      position: relative;
+    }
+    
+    .header-content {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+    
+    .tagline {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      color: rgba(255,255,255,0.85);
+    }
+    
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    
+    nav a {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      background: rgba(255,255,255,0.1);
+      color: var(--secondary);
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
+    }
+    
+    nav a:hover, nav a.active {
+      background: var(--secondary);
+      color: var(--primary);
+    }
+    
+    /* Main Content */
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+    
+    section {
+      margin-bottom: 3rem;
+      padding-bottom: 1.5rem;
+    }
+    
+    h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 1.7rem;
+      color: var(--primary);
+      position: relative;
+      padding-bottom: 0.8rem;
+    }
+    
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--secondary);
+      border-radius: 2px;
+    }
+    
+    /* Web Gallery */
+    .web-gallery {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    
+    .project {
+      background: white;
+      border-radius: 12px;
+      padding: 1.8rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    
+    .project h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+    
+    .project p {
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+    }
+    
+    .project a {
+      display: inline-block;
+      padding: 0.7rem 1.5rem;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: background 0.3s;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .project a:hover {
+      background: var(--accent);
+    }
+    
+    .tech-badge {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: var(--secondary);
+      color: var(--primary);
+      padding: 0.5rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border-radius: 0 12px 0 12px;
+    }
+    
+    /* Design Gallery */
+    .design-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    
+    .design-item {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .design-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    
+    .design-image {
+      height: 180px;
+      width: 100%;
+      background: #f5f5f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    
+    .design-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .design-item:hover .design-image img {
+      transform: scale(1.05);
+    }
+    
+    .design-info {
+      padding: 1.2rem;
+    }
+    
+    .design-info p {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      margin-bottom: 0.5rem;
+    }
+    
+    .design-tool {
+      font-size: 0.8rem;
+      color: var(--secondary);
+      font-weight: 600;
+    }
+    
+    /* Excel Section */
+    #excel {
+      text-align: center;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    
+    .excel-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .excel-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      padding: 0.9rem 1.8rem;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .excel-link:hover {
+      background: var(--accent);
+      transform: translateY(-3px);
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+    }
+    
+    .contact-info {
+      max-width: 800px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.2rem;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      font-size: 1rem;
+    }
+    
+    .contact-item a {
+      color: var(--secondary);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .contact-item a:hover {
+      color: white;
+      text-decoration: underline;
+    }
+    
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    
+    .social-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      background: rgba(255,255,255,0.1);
+      color: var(--secondary);
+      border-radius: 50%;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icons a:hover {
+      background: var(--secondary);
+      color: var(--primary);
+      transform: translateY(-3px);
+    }
+    
+    .copyright {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.7);
+    }
+    
+    /* Mobile Menu Button */
+    .mobile-menu-btn {
+      display: none;
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 10;
+    }
+    
+    /* Mobile-specific styles */
+    @media (max-width: 768px) {
+      /* Mobile navigation */
+      nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+        padding: 1rem 0;
+        display: none;
+      }
+      
+      nav.active {
+        display: flex;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      /* Adjust sections */
+      main {
+        padding: 1.5rem 1rem;
+      }
+      
+      section {
+        margin-bottom: 2.5rem;
+      }
+      
+      h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      /* Project cards */
+      .project {
+        padding: 1.5rem;
+      }
+      
+      .project h3 {
+        font-size: 1.2rem;
+      }
+      
+      /* Design gallery */
+      .design-gallery {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+      
+      .design-image {
+        height: 200px;
+      }
+      
+      /* Contact info */
+      .contact-info {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      
+      .contact-item {
+        flex-direction: column;
+        gap: 0.3rem;
+      }
+      
+      .excel-links {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .excel-link {
+        padding: 0.9rem;
+      }
+    }
+    
+    /* Desktop-specific adjustments */
+    @media (min-width: 769px) {
+      /* Web gallery - 2 columns on desktop */
+      .web-gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      /* Design gallery - 3 columns on desktop */
+      .design-gallery {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
+      /* Contact info - 2 columns on desktop */
+      .contact-info {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      /* Hide mobile menu button on desktop */
+      .mobile-menu-btn {
+        display: none;
+      }
+      
+      /* Show desktop navigation */
+      nav {
+        display: flex;
+      }
+    }
+    
+    @media (min-width: 992px) {
+      /* Design gallery - 4 columns on larger screens */
+      .design-gallery {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    
+    /* Animation for section entrance */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    section {
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <h1>Isaac Saltson</h1>
-    <p>Web Developer | Graphic Designer | Excel Specialist</p>
-    <nav>
-      <a href="#web">Web</a>
-      <a href="#design">Design</a>
-      <a href="#excel">Excel & PowerPoint</a>
-    </nav>
+    <button class="mobile-menu-btn" id="menuToggle">
+      <i class="fas fa-bars"></i>
+    </button>
+    
+    <div class="header-content">
+      <h1>Isaac Saltson</h1>
+      <p class="tagline">Web Developer | Graphic Designer | Excel Specialist</p>
+      
+      <nav id="mainNav">
+        <a href="#web" class="active">Web Development</a>
+        <a href="#design">Graphic Design</a>
+        <a href="#excel">Excel & PowerPoint</a>
+      </nav>
+    </div>
   </header>
 
   <main>
-
     <section id="web">
       <h2>Web Development Projects</h2>
 
       <div class="web-gallery">
         <article class="project">
+          <div class="tech-badge">PHP + JS</div>
           <h3>Secure File Sharing</h3>
-          <a href="https://secure-file-sharer.wuaze.com" target="_blank">Live Demo</a>
-          <p>Built with PHP, JavaScript, and link‑based authentication.</p>
+          <p>Built with PHP, JavaScript, and link‑based authentication for secure file transfers.</p>
+          <a href="https://secure-file-sharer.wuaze.com" target="_blank">
+            <i class="fas fa-external-link-alt"></i> Live Demo
+          </a>
         </article>
 
         <article class="project">
+          <div class="tech-badge">PHP + JS</div>
           <h3>Real‑Time Chat App</h3>
-          <a href="https://chat-app-9xnr.onrender.com" target="_blank">Live Demo</a>
-          <p>End‑to‑end encrypted group chat built on PHP & JS.</p>
+          <p>End‑to‑end encrypted group chat built on PHP and JavaScript with real-time updates.</p>
+          <a href="https://chat-app-9xnr.onrender.com" target="_blank">
+            <i class="fas fa-external-link-alt"></i> Live Demo
+          </a>
         </article>
 
-          <article class="project">
-          <h3>Real‑Time Chat App</h3>
-          <a href="https://chat-app-9xnr.onrender.com" target="_blank">Live Demo</a>
-          <p>End‑to‑end encrypted group chat built on PHP & JS.</p>
+        <article class="project">
+          <div class="tech-badge">React + Node</div>
+          <h3>E-Commerce Platform</h3>
+          <p>Full-featured online store with payment processing and inventory management.</p>
+          <a href="#" target="_blank">
+            <i class="fas fa-external-link-alt"></i> Live Demo
+          </a>
         </article>
       </div>
     </section>
@@ -47,57 +531,140 @@
       <h2>Graphic Design Projects</h2>
       <div class="design-gallery">
         <div class="design-item">
-          <a href="img/flyer1.jpg" target="_blank">
-            <img src="img/flyer1.jpg" alt="Promotional Flyer">
-          </a>
-          <p>Event flyer for youth tech workshop · Canva</p>
+          <div class="design-image">
+            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Promotional Flyer">
+          </div>
+          <div class="design-info">
+            <p>Event flyer for youth tech workshop</p>
+            <div class="design-tool">Canva</div>
+          </div>
         </div>
 
         <div class="design-item">
-          <a href="img/poster1.jpg" target="_blank">
-            <img src="img/poster1.jpg" alt="Cybersecurity Poster">
-          </a>
-          <p>Cybersecurity awareness poster · Photoshop</p>
+          <div class="design-image">
+            <img src="https://images.unsplash.com/photo-1558494940-bf84fe2c01c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Cybersecurity Poster">
+          </div>
+          <div class="design-info">
+            <p>Cybersecurity awareness poster</p>
+            <div class="design-tool">Photoshop</div>
+          </div>
         </div>
 
         <div class="design-item">
-          <a href="img/logo1.jpg" target="_blank">
-            <img src="img/logo1.jpg" alt="Logo Concept">
-          </a>
-          <p>Brand logo concept for GhanaRanks · Illustrator</p>
+          <div class="design-image">
+            <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Logo Concept">
+          </div>
+          <div class="design-info">
+            <p>Brand logo concept for GhanaRanks</p>
+            <div class="design-tool">Illustrator</div>
+          </div>
         </div>
 
         <div class="design-item">
-          <a href="img/1.jpg" target="_blank">
-            <img src="img/1.jpg" alt="Slide Deck Design">
-          </a>
-          <p>Presentation deck design · PowerPoint</p>
+          <div class="design-image">
+            <img src="https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Slide Deck Design">
+          </div>
+          <div class="design-info">
+            <p>Corporate presentation deck design</p>
+            <div class="design-tool">PowerPoint</div>
+          </div>
         </div>
-
-        <div class="design-item">
-          <a href="img/2.jpg" target="_blank">
-            <img src="img/2.jpg" alt="Slide Deck Design">
-          </a>
-          <p>Presentation deck design · PowerPoint</p>
-        </div>
-        
       </div>
     </section>
+    
     <section id="excel">
       <h2>Excel & PowerPoint</h2>
-      <p><a href="#">View Excel Dashboard</a></p>
-      <p><a href="#">View PowerPoint Slides</a></p>
+      <p>Explore my data visualization and presentation projects</p>
+      
+      <div class="excel-links">
+        <a href="#" class="excel-link">
+          <i class="fas fa-file-excel"></i> View Excel Dashboard
+        </a>
+        <a href="#" class="excel-link">
+          <i class="fas fa-file-powerpoint"></i> View PowerPoint Slides
+        </a>
+      </div>
     </section>
   </main>
 
   <footer>
-    <p>
-      Contact:
-      <a href="mailto:isaltson99@gmail.com">isaltson99@gmail.com</a> |
-      Phone: +233 547 595 920 / +233 505 648 769 / +233 506 225 027 |
-      GitHub: <a href="https://github.com/isaltson">isaltson</a> |
-      LinkedIn: <a href="https://www.linkedin.com/in/isaac-saltson-947726353">Isaac‑Saltson</a>
-    </p>
+    <div class="contact-info">
+      <div class="contact-item">
+        <i class="fas fa-envelope"></i>
+        <a href="mailto:isaltson99@gmail.com">isaltson99@gmail.com</a>
+      </div>
+      
+      <div class="contact-item">
+        <i class="fas fa-phone"></i>
+        <div>+233 547 595 920 / +233 505 648 769</div>
+      </div>
+      
+      <div class="contact-item">
+        <i class="fab fa-github"></i>
+        <a href="https://github.com/isaltson" target="_blank">github.com/isaltson</a>
+      </div>
+      
+      <div class="contact-item">
+        <i class="fab fa-linkedin"></i>
+        <a href="https://www.linkedin.com/in/isaac-saltson-947726353" target="_blank">Isaac-Saltson</a>
+      </div>
+    </div>
+    
+    <div class="social-icons">
+      <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
+      <a href="#" aria-label="Behance"><i class="fab fa-behance"></i></a>
+    </div>
+    
+    <div class="copyright">
+      &copy; 2023 Isaac Saltson. All rights reserved.
+    </div>
   </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mainNav = document.getElementById('mainNav');
+    
+    menuToggle.addEventListener('click', () => {
+      mainNav.classList.toggle('active');
+      const icon = menuToggle.querySelector('i');
+      
+      if (mainNav.classList.contains('active')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+      } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
+    });
+    
+    // Close menu when clicking a link
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mainNav.classList.remove('active');
+        const icon = menuToggle.querySelector('i');
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      });
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
