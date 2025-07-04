@@ -100,39 +100,36 @@ h3{
 section h2 {
   text-align: center;
 }
-/* ═════ iPhone 11 & similar (≤ 430 px) ═════ */
-/* ═════ iPhone + Small Mobile Screens (≤ 430px) — Use 2 per row ═════ */
-@media (max-width: 600px) {
+/* ═══ iPhone / Small Mobile (≤ 430 px) ── 2 cards per row + cover image ═══ */
+@media (max-width: 430px) {
 
-  /* Graphic Design: 2 items per row */
+  /* GRAPHIC DESIGN */
   .design-gallery {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-columns: repeat(2, 1fr);   /* 2 cards per row */
     gap: 14px;
   }
 
+  /* Image now fills the card’s top and is center‑cropped */
   .design-item img {
-    max-height: 160px;
-    object-fit: contain;
-    margin: 0 auto;
+    width: 100%;
+    height: 160px;            /* adjust to taste; same for every card */
+    object-fit: cover;        /* crop edges, no bars */
+    object-position: center;  /* center the crop */
     display: block;
+    border-radius: 6px 6px 0 0;   /* round top corners only (optional) */
   }
 
   .design-item p {
     font-size: 0.9em;
+    padding: 6px 4px 0;       /* tighten caption space */
   }
 
-  /* Web Dev: wider, more comfortable */
-  .web-gallery {
-    justify-items: center;
-  }
-
+  /* WEB‑DEV cards stay full‑width but compact */
   .web-gallery .project {
     width: 95%;
     padding: 12px;
     font-size: 1em;
   }
-
   .web-gallery .project h3 {
     font-size: 1.2em;
     margin-bottom: 6px;
