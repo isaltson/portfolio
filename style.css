@@ -54,7 +54,7 @@ footer {
 }
 
 .web-gallery .project h3 {
-  
+  text-align: center;
   margin-top: 0.2em;
 }
 
@@ -87,4 +87,8 @@ footer {
 
 .design-item a {
   display: block;
+}
+
+h3{
+  text-align: center;
 }
