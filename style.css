@@ -102,37 +102,42 @@ section h2 {
 }
 /* ═══ iPhone / Small Mobile (≤ 430 px) ── 2 cards per row + cover image ═══ */
 /* ═════ iPhone + Small Mobile Screens (≤ 430px) — Use 2 per row ═════ */
+/* ═════ iPhone & small phones (≤ 430 px) — large 2‑per‑row thumbs ═════ */
 @media (max-width: 430px) {
 
-  /* Graphic Design: 2 items per row */
+  /* use almost the whole screen: 2 columns, tiny gap */
   .design-gallery {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 14px;
+    grid-template-columns: repeat(2, 1fr);   /* 2 cards per row */
+    gap: 6px;                                /* much slimmer gap */
   }
 
+  /* card container: no inner padding so image can fill width */
+  .design-item {
+    padding: 0;              /* remove inner whitespace */
+  }
+
+  /* image: larger & edge‑to‑edge */
   .design-item img {
-    max-height: 160px;
-    object-fit: contain;
-    margin: 0 auto;
+    width: 100%;
+    height: 200px;           /* taller picture — adjust if you want more */
+    object-fit: cover;       /* crop edges so it fills */
+    object-position: center; /* center the crop */
     display: block;
+    border-radius: 6px 6px 0 0;
   }
 
+  /* caption: small but readable */
   .design-item p {
     font-size: 0.9em;
+    padding: 6px 4px;
   }
 
-  /* Web Dev: wider, more comfortable */
-  .web-gallery {
-    justify-items: center;
-  }
-
+  /* widen & center Web‑Dev cards, but keep them compact */
   .web-gallery .project {
     width: 95%;
-    padding: 12px;
+    padding: 14px;
     font-size: 1em;
   }
-
   .web-gallery .project h3 {
     font-size: 1.2em;
     margin-bottom: 6px;
