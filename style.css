@@ -101,38 +101,40 @@ section h2 {
   text-align: center;
 }
 /* ═════ iPhone 11 & similar (≤ 430 px) ═════ */
+/* ═════ iPhone + Small Mobile Screens (≤ 430px) — Use 2 per row ═════ */
 @media (max-width: 430px) {
 
-  /* ─── Graphic‑Design: 3 thumbnails per row ─── */
+  /* Graphic Design: 2 items per row */
   .design-gallery {
     display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;  /* 3 across */
-    gap: 12px !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 14px;
   }
 
   .design-item img {
-    max-height: 120px !important;   /* all thumbs same height */
-    object-fit: contain !important; /* show full picture */
-    margin: 0 auto !important;      /* center if narrower */
+    max-height: 160px;
+    object-fit: contain;
+    margin: 0 auto;
+    display: block;
   }
 
   .design-item p {
-    font-size: 0.85em !important;   /* readable on phone */
+    font-size: 0.9em;
   }
 
-  /* ─── Web‑Dev cards: wider & compact ─── */
+  /* Web Dev: wider, more comfortable */
   .web-gallery {
-    justify-items: center !important;   /* center cards */
+    justify-items: center;
   }
 
   .web-gallery .project {
-    width: 94% !important;          /* nearly full width */
-    padding: 12px !important;       /* slim padding */
-    font-size: 0.95em !important;   /* comfortable text */
+    width: 95%;
+    padding: 12px;
+    font-size: 1em;
   }
 
   .web-gallery .project h3 {
-    font-size: 1.15em !important;   /* heading readable */
-    margin-bottom: 6px !important;
+    font-size: 1.2em;
+    margin-bottom: 6px;
   }
 }
