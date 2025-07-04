@@ -78,11 +78,12 @@ footer {
 }
 
 .design-item img {
-  max-width: 100%;      /* never spills horizontally          */
-  height: auto;         /* scale down proportionally           */
-  max-height: 250px;    /* shrink tall images if necessary     */
-  object-fit: contain;  /* show the whole picture, no cropping */
-  display: block;       /* removes tiny inline‑img gap         */
+  max-width: 100%;
+  height: auto;
+  max-height: 250px;     /* tweak if you like */
+  object-fit: contain;   /* show full picture */
+  display: block;
+  margin: 0 auto;        /* ⇠ centers the image */
   border-radius: 6px;
 }
 
