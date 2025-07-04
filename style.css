@@ -74,3 +74,25 @@ footer {
 .design-item a {
   display: block;
 }
+
+.web-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 20px;
+}
+
+
+.web-gallery .project {
+  margin: 0;                  
+  border: 1px solid #ddd;
+  padding: 15px;
+  background: #fff;
+  box-shadow: 1px 1px 4px rgba(0,0,0,0.05);
+}
+
+@media (max-width: 600px) {
+  .web-gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
