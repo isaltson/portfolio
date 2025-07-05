@@ -192,7 +192,7 @@
       border-radius: 0 12px 0 12px;
     }
     
-    /* Design Gallery - UPDATED IMAGE CONTAINER */
+    /* Design Gallery */
     .design-gallery {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -206,8 +206,6 @@
       box-shadow: 0 5px 15px rgba(0,0,0,0.05);
       transition: all 0.3s ease;
       cursor: pointer;
-      display: flex;
-      flex-direction: column;
     }
     
     .design-item:hover {
@@ -216,20 +214,19 @@
     }
     
     .design-image {
-      /* Changed to flex container for better control */
-      display: flex;
-      align-items: flex-start; /* Show top of image */
-      justify-content: center;
+      height: 180px;
+      width: 100%;
       background: #f5f5f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       overflow: hidden;
-      height: 200px; /* Slightly taller to show more */
     }
     
     .design-image img {
       width: 100%;
-      height: auto;
-      max-height: 100%;
-      object-fit: contain; /* Show entire image without cropping */
+      height: 100%;
+      object-fit: cover;
       transition: transform 0.5s ease;
     }
     
@@ -239,7 +236,6 @@
     
     .design-info {
       padding: 1.2rem;
-      flex-grow: 1;
     }
     
     .design-info p {
@@ -537,7 +533,7 @@
       }
       
       .design-image {
-        height: 220px; /* Taller on mobile for better image display */
+        height: 200px;
       }
       
       /* Contact info */
@@ -713,7 +709,7 @@
           </div>
         </div>
 
-        <div class="design-item" data-image="img/4.png" data-caption="Brand flyer concept for Abby's Collection · Canva">
+         <div class="design-item" data-image="img/4.png" data-caption="Brand flyer concept for Abby's Collection · Canva">
           <div class="design-image">
             <img src="img/4.png" alt="flyer Concept">
           </div>
