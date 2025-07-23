@@ -5,620 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Isaac Saltson - Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-   
-    :root {
-      --primary: #2c3e50;
-      --secondary: #f39c12;
-      --accent: #3498db;
-      --light: #f8f9fa;
-      --dark: #222;
-      --gray: #e0e0e0;
-      --text: #333;
-      --text-light: #777;
-    }
-    
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    
-    body {
-      font-family: 'Segoe UI', Roboto, -apple-system, sans-serif;
-      background: var(--light);
-      color: var(--text);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-    
-    /* Header & Navigation */
-    header {
-      background: var(--primary);
-      color: white;
-      padding: 1.5rem 1rem;
-      text-align: center;
-      position: relative;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    
-    .header-content {
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    
-    h1 {
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
-      font-weight: 700;
-    }
-    
-    .tagline {
-      font-size: 1.1rem;
-      margin-bottom: 1.5rem;
-      color: rgba(255,255,255,0.85);
-    }
-    
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
-    
-    nav a {
-      display: inline-block;
-      padding: 0.6rem 1.2rem;
-      background: rgba(255,255,255,0.1);
-      color: var(--secondary);
-      text-decoration: none;
-      border-radius: 30px;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      font-size: 0.95rem;
-    }
-    
-    nav a:hover, nav a.active {
-      background: var(--secondary);
-      color: var(--primary);
-    }
-    
-    /* Main Content */
-    main {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 2rem 1.5rem;
-    }
-    
-    section {
-      margin-bottom: 3rem;
-      padding-bottom: 1.5rem;
-    }
-    
-    h1, h2, h3 {
-      font-weight: 600;
-    }
-    
-    h1 {
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
-    }
-    
-    h2 {
-      text-align: center;
-      margin-bottom: 2rem;
-      font-size: 1.7rem;
-      color: var(--primary);
-      position: relative;
-      padding-bottom: 0.8rem;
-    }
-    
-    h2::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 4px;
-      background: var(--secondary);
-      border-radius: 2px;
-    }
-    
-    h3 {
-      font-size: 1.2rem;
-      margin: 0.5em 0;
-    }
-    
-    /* Web Gallery */
-    .web-gallery {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-    
-    .project {
-      background: white;
-      border-radius: 12px;
-      padding: 1.8rem;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .project:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    }
-    
-    .project h3 {
-      font-size: 1.3rem;
-      margin-bottom: 1rem;
-      color: var(--primary);
-    }
-    
-    .project p {
-      color: var(--text-light);
-      margin-bottom: 1.5rem;
-    }
-    
-    .project a {
-      display: inline-block;
-      padding: 0.7rem 1.5rem;
-      background: var(--primary);
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: 500;
-      transition: background 0.3s;
-      position: relative;
-      z-index: 2;
-    }
-    
-    .project a:hover {
-      background: var(--accent);
-    }
-    
-    .tech-badge {
-      position: absolute;
-      top: 0;
-      right: 0;
-      background: var(--secondary);
-      color: var(--primary);
-      padding: 0.5rem 1rem;
-      font-size: 0.8rem;
-      font-weight: 600;
-      border-radius: 0 12px 0 12px;
-    }
-    
-   
-    .design-gallery {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-    }
-    
-    .design-item {
-      background: white;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-      transition: all 0.3s ease;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-    }
-    
-    .design-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    }
-    
-    .design-image {
-      height: 200px; 
-      width: 100%;
-      background: #f5f5f5;
-      display: flex;
-      align-items: center; 
-      justify-content: center; 
-      overflow: hidden;
-      padding: 10px;/
-    }
-    
-    .design-image img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain; 
-      transition: transform 0.5s ease;
-    }
-    
-    .design-item:hover .design-image img {
-      transform: scale(1.05);
-    }
-    
-    .design-info {
-      padding: 1.2rem;
-    }
-    
-    .design-info p {
-      font-size: 0.95rem;
-      color: var(--text-light);
-      margin-bottom: 0.5rem;
-    }
-    
-    .design-tool {
-      font-size: 0.8rem;
-      color: var(--secondary);
-      font-weight: 600;
-    }
-    
-    /* Excel Section */
-    #excel {
-      text-align: center;
-      background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    }
-    
-    .excel-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-      flex-wrap: wrap;
-    }
-    
-    .excel-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.7rem;
-      padding: 0.9rem 1.8rem;
-      background: var(--primary);
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: 500;
-      transition: all 0.3s ease;
-    }
-    
-    .excel-link:hover {
-      background: var(--accent);
-      transform: translateY(-3px);
-    }
-    
-    /* Footer */
-    footer {
-      background: var(--primary);
-      color: white;
-      text-align: center;
-      padding: 2.5rem 1.5rem;
-    }
-    
-    .contact-info {
-      max-width: 800px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.2rem;
-    }
-    
-    .contact-item {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.8rem;
-      font-size: 1rem;
-    }
-    
-    .contact-item a {
-      color: var(--secondary);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    
-    .contact-item a:hover {
-      color: white;
-      text-decoration: underline;
-    }
-    
-    .social-icons {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-    }
-    
-    .social-icons a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 45px;
-      height: 45px;
-      background: rgba(255,255,255,0.1);
-      color: var(--secondary);
-      border-radius: 50%;
-      font-size: 1.2rem;
-      transition: all 0.3s ease;
-    }
-    
-    .social-icons a:hover {
-      background: var(--secondary);
-      color: var(--primary);
-      transform: translateY(-3px);
-    }
-    
-    .copyright {
-      margin-top: 2rem;
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.7);
-    }
-    
-    /* Mobile Menu Button */
-    .mobile-menu-btn {
-      display: none;
-      position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
-      background: transparent;
-      border: none;
-      color: white;
-      font-size: 1.5rem;
-      cursor: pointer;
-      z-index: 10;
-    }
-    
-    /* Show More/Less Button */
-    .show-more-btn {
-      display: block;
-      margin: 2rem auto 0;
-      padding: 0.8rem 2rem;
-      background: var(--primary);
-      color: white;
-      border: none;
-      border-radius: 30px;
-      font-size: 1rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    
-    .show-more-btn:hover {
-      background: var(--accent);
-      transform: translateY(-3px);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-    }
-    
-    .hidden {
-      display: none;
-    }
-    
-    
-    .lightbox {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.9);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-    }
-    
-    .lightbox.active {
-      opacity: 1;
-      pointer-events: all;
-    }
-    
-    .lightbox-content {
-      max-width: 90%;
-      max-height: 90%;
-      position: relative;
-    }
-    
-    .lightbox-image {
-      max-width: 100%;
-      max-height: 80vh;
-      border-radius: 8px;
-      box-shadow: 0 5px 25px rgba(0,0,0,0.5);
-    }
-    
-    .lightbox-caption {
-      color: white;
-      text-align: center;
-      margin-top: 1rem;
-      font-size: 1.1rem;
-    }
-    
-    .lightbox-close {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      color: white;
-      font-size: 2rem;
-      background: none;
-      border: none;
-      cursor: pointer;
-      transition: color 0.3s;
-    }
-    
-    .lightbox-close:hover {
-      color: var(--secondary);
-    }
-    
-    .lightbox-nav {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      padding: 0 20px;
-    }
-    
-    .lightbox-btn {
-      background: rgba(255, 255, 255, 0.2);
-      color: white;
-      border: none;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      font-size: 1.5rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s;
-    }
-    
-    .lightbox-btn:hover {
-      background: var(--secondary);
-      color: var(--primary);
-    }
-    
-    
-    @media (max-width: 768px) {
-     
-      nav {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.8rem;
-        padding: 1rem 0;
-        display: none;
-      }
-      
-      nav.active {
-        display: flex;
-      animation: fadeIn 0.3s;
-      position: relative;
-        z-index: 5;
-      }
-      
-      .mobile-menu-btn {
-        display: block;
-      }
-      
-     
-      main {
-        padding: 1.5rem 1rem;
-      }
-      
-      section {
-        margin-bottom: 2.5rem;
-      }
-      
-      h2 {
-        font-size: 1.5rem;
-        margin-bottom: 1.5rem;
-      }
-      
-     
-      .project {
-        padding: 1.5rem;
-      }
-      
-      .project h3 {
-        font-size: 1.2rem;
-      }
-      
-      /* Design gallery */
-      .design-gallery {
-        grid-template-columns: 1fr;
-        gap: 1.2rem;
-      }
-      
-      .design-image {
-        height: 220px;
-      }
-      
-
-      .contact-info {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-      
-      .contact-item {
-        flex-direction: column;
-        gap: 0.3rem;
-      }
-      
-      .excel-links {
-        flex-direction: column;
-        gap: 1rem;
-      }
-      
-      .excel-link {
-        padding: 0.9rem;
-      }
-      
-
-      .lightbox-content {
-        max-width: 95%;
-      }
-      
-      .lightbox-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem;
-      }
-    }
-    
-   
-    @media (min-width: 769px) {
-   
-      .web-gallery {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      
-    
-      .design-gallery {
-        grid-template-columns: repeat(4, 1fr);
-      }
-      
-
-      .contact-info {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      
-     
-      .mobile-menu-btn {
-        display: none;
-      }
-      
-     
-      nav {
-        display: flex;
-      }
-    }
-    
-    
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
-    section {
-      animation: fadeInUp 0.6s ease-out forwards;
-    }
-    
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
@@ -634,55 +21,55 @@
         <a href="#web" class="active">Web Development</a>
         <a href="#design">Graphic Design</a>
         <a href="#excel">Excel & PowerPoint</a>
+        <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
   <main>
+    <!-- Web Development Section -->
     <section id="web">
       <h2>Web Development Projects</h2>
 
       <div class="web-gallery">
+        <article class="project">
+          <div class="tech-badge">HTML + PHP + JS</div>
+          <h3>Secure File Sharing Platform</h3>
+          <p>A web-based file transfer app that lets users upload and download files securely using unique tokens, accessible from any device.</p>
+          <a href="https://secure-file-sharer.wuaze.com" target="_blank">
+            <i class="fas fa-external-link-alt"></i> Live Demo
+          </a>
+        </article>
 
-      <article class="project">
-        <div class="tech-badge">HTML + PHP + JS</div>
-        <h3>Secure File Sharing Platform</h3>
-        <p>A web-based file transfer app that lets users upload and download files securely using unique tokens, accessible from any device.</p>
-        <a href="https://secure-file-sharer.wuaze.com" target="_blank">
-          <i class="fas fa-external-link-alt"></i> Live Demo
-        </a>
-      </article>
+        <article class="project">
+          <div class="tech-badge">Node.js + Socket.io</div>
+          <h3>Real-Time Chat Application</h3>
+          <p>Lightweight web chat app with real-time messaging using WebSockets, designed for secure and instant communication between users.</p>
+          <a href="https://chat-app-9xnr.onrender.com" target="_blank">
+            <i class="fas fa-external-link-alt"></i> Live Demo
+          </a>
+        </article>
 
+        <article class="project hidden">
+          <div class="tech-badge">Py + TG Bot API</div>
+          <h3>Telegram File Transfer Bot</h3>
+          <p>A simple and secure Telegram bot that lets users send files from one device and retrieve them on another using a unique token.</p>
+          <a href="https://t.me/ezFileshare_bot" target="_blank">
+            <i class="fas fa-external-link-alt"></i> Live Demo
+          </a>
+        </article>
 
-      <article class="project">
-  <div class="tech-badge">Node.js + Socket.io</div>
-  <h3>Real-Time Chat Application</h3>
-  <p>Lightweight web chat app with real-time messaging using WebSockets, designed for secure and instant communication between users.</p>
-  <a href="https://chat-app-9xnr.onrender.com" target="_blank">
-    <i class="fas fa-external-link-alt"></i> Live Demo
-  </a>
-</article>
-
-       <article class="project hidden">
-              <div class="tech-badge">Py + TG Bot API</div>
-              <h3>Telegram File Transfer Bot</h3>
-              <p>A simple and secure Telegram bot that lets users send files from one device and retrieve them on another using a unique token.</p>
-              <a href="https://t.me/ezFileshare_bot" target="_blank">
-                <i class="fas fa-external-link-alt"></i> Live Demo
-              </a>
-            </article>
-
-      
-      <button class="show-more-btn" id="showMoreWeb">
-        <i class="fas fa-plus-circle"></i> Show More 
-      </button>
+        <button class="show-more-btn" id="showMoreWeb">
+          <i class="fas fa-plus-circle"></i> Show More 
+        </button>
+      </div>
     </section>
 
+    <!-- Graphic Design Section -->
     <section id="design">
       <h2>Graphic Design Projects</h2>
       <div class="design-gallery">
-
-       <div class="design-item" data-image="img/ROOM6.jpg" data-caption="Brand flyer Room6 tv series · Canva">
+        <div class="design-item" data-image="img/ROOM6.jpg" data-caption="Brand flyer Room6 tv series · Canva">
           <div class="design-image">
             <img src="img/ROOM6.jpg" alt="flyer Concept">
           </div>
@@ -740,10 +127,10 @@
           <div class="design-info">
             <p>Brand flyer for shadow's foothub</p>
             <div class="design-tool">Canva/photoshop</div>
-          </div>/
+          </div>
         </div>
         
-         <div class="design-item hidden" data-image="img/poster1.jpg" data-caption="Brand flyer concept for Thrify Jess · Canva/ Photoshop">
+        <div class="design-item hidden" data-image="img/poster1.jpg" data-caption="Brand flyer concept for Thrify Jess · Canva/ Photoshop">
           <div class="design-image">
             <img src="img/poster1.jpg" alt="flyer Concept">
           </div>
@@ -762,12 +149,14 @@
             <div class="design-tool">Canva</div>
           </div>
         </div>
+      </div>
       
       <button class="show-more-btn" id="showMoreDesign">
         <i class="fas fa-plus-circle"></i> Show More Designs
       </button>
     </section>
     
+    <!-- Excel Section -->
     <section id="excel">
       <h2>Excel & PowerPoint</h2>
       <p>Explore my data visualization and presentation projects</p>
@@ -780,6 +169,40 @@
           <i class="fas fa-file-powerpoint"></i> View PowerPoint Slides
         </a>
       </div>
+    </section>
+    
+    <!-- New Contact Section -->
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <p>Send me a message and I'll get back to you as soon as possible</p>
+      
+      <form id="contactForm" class="contact-form">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required placeholder="Your name">
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="Your email">
+        </div>
+        
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" required placeholder="Message subject">
+        </div>
+        
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="6" required placeholder="Your message"></textarea>
+        </div>
+        
+        <button type="submit" class="submit-btn">
+          <i class="fas fa-paper-plane"></i> Send Message
+        </button>
+      </form>
+      
+      <div id="formMessage" class="form-message"></div>
     </section>
   </main>
 
@@ -1004,6 +427,54 @@
           openLightbox(currentIndex);
         }
       }
+    });
+    
+    // Contact Form Submission
+    const contactForm = document.getElementById('contactForm');
+    const formMessage = document.getElementById('formMessage');
+    
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Get form values
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value;
+      
+      // Simple validation
+      if (!name || !email || !subject || !message) {
+        formMessage.textContent = 'Please fill in all fields';
+        formMessage.className = 'form-message error';
+        return;
+      }
+      
+      // Validate email format
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        formMessage.textContent = 'Please enter a valid email address';
+        formMessage.className = 'form-message error';
+        return;
+      }
+      
+      // Show sending message
+      formMessage.textContent = 'Sending message...';
+      formMessage.className = 'form-message sending';
+      
+      // Simulate sending to server (in a real app, this would be an AJAX request)
+      setTimeout(() => {
+        formMessage.textContent = 'Message sent successfully! I\'ll get back to you soon.';
+        formMessage.className = 'form-message success';
+        
+        // Reset form
+        contactForm.reset();
+        
+        // Clear message after 5 seconds
+        setTimeout(() => {
+          formMessage.textContent = '';
+          formMessage.className = 'form-message';
+        }, 5000);
+      }, 1500);
     });
   </script>
 </body>
