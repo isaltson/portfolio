@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +6,6 @@
   <title>Isaac Saltson - Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-   
     :root {
       --primary: #2c3e50;
       --secondary: #f39c12;
@@ -131,10 +129,106 @@
       margin: 0.5em 0;
     }
     
-    /* Web Gallery */
+    /* Design gallery - Restructured to come first */
+    .design-gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+    
+    .design-item {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .design-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    
+    .design-image {
+      height: 200px; 
+      width: 100%;
+      background: #f5f5f5;
+      display: flex;
+      align-items: center; 
+      justify-content: center; 
+      overflow: hidden;
+      padding: 10px;
+    }
+    
+    .design-image img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain; 
+      transition: transform 0.5s ease;
+    }
+    
+    .design-item:hover .design-image img {
+      transform: scale(1.05);
+    }
+    
+    .design-info {
+      padding: 1.2rem;
+    }
+    
+    .design-info p {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      margin-bottom: 0.5rem;
+    }
+    
+    .design-tool {
+      font-size: 0.8rem;
+      color: var(--secondary);
+      font-weight: 600;
+    }
+    
+    /* Excel Section - Now second */
+    #excel {
+      text-align: center;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    
+    .excel-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .excel-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      padding: 0.9rem 1.8rem;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .excel-link:hover {
+      background: var(--accent);
+      transform: translateY(-3px);
+    }
+    
+    /* Web Gallery - Now last */
     .web-gallery {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(2, 1fr);
       gap: 1.5rem;
     }
     
@@ -193,102 +287,6 @@
       border-radius: 0 12px 0 12px;
     }
     
-   
-    .design-gallery {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-    }
-    
-    .design-item {
-      background: white;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-      transition: all 0.3s ease;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-    }
-    
-    .design-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    }
-    
-    .design-image {
-      height: 200px; 
-      width: 100%;
-      background: #f5f5f5;
-      display: flex;
-      align-items: center; 
-      justify-content: center; 
-      overflow: hidden;
-      padding: 10px;/
-    }
-    
-    .design-image img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain; 
-      transition: transform 0.5s ease;
-    }
-    
-    .design-item:hover .design-image img {
-      transform: scale(1.05);
-    }
-    
-    .design-info {
-      padding: 1.2rem;
-    }
-    
-    .design-info p {
-      font-size: 0.95rem;
-      color: var(--text-light);
-      margin-bottom: 0.5rem;
-    }
-    
-    .design-tool {
-      font-size: 0.8rem;
-      color: var(--secondary);
-      font-weight: 600;
-    }
-    
-    /* Excel Section */
-    #excel {
-      text-align: center;
-      background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    }
-    
-    .excel-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-      flex-wrap: wrap;
-    }
-    
-    .excel-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.7rem;
-      padding: 0.9rem 1.8rem;
-      background: var(--primary);
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: 500;
-      transition: all 0.3s ease;
-    }
-    
-    .excel-link:hover {
-      background: var(--accent);
-      transform: translateY(-3px);
-    }
-    
     /* Footer */
     footer {
       background: var(--primary);
@@ -301,7 +299,7 @@
       max-width: 800px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(2, 1fr);
       gap: 1.2rem;
     }
     
@@ -370,33 +368,7 @@
       z-index: 10;
     }
     
-    /* Show More/Less Button */
-    .show-more-btn {
-      display: block;
-      margin: 2rem auto 0;
-      padding: 0.8rem 2rem;
-      background: var(--primary);
-      color: white;
-      border: none;
-      border-radius: 30px;
-      font-size: 1rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    
-    .show-more-btn:hover {
-      background: var(--accent);
-      transform: translateY(-3px);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-    }
-    
-    .hidden {
-      display: none;
-    }
-    
-    
+    /* Lightbox */
     .lightbox {
       position: fixed;
       top: 0;
@@ -484,9 +456,9 @@
       color: var(--primary);
     }
     
-    
+    /* Mobile Optimizations */
     @media (max-width: 768px) {
-     
+      /* Mobile navigation */
       nav {
         flex-direction: column;
         align-items: center;
@@ -497,8 +469,8 @@
       
       nav.active {
         display: flex;
-      animation: fadeIn 0.3s;
-      position: relative;
+        animation: fadeIn 0.3s;
+        position: relative;
         z-index: 5;
       }
       
@@ -506,7 +478,7 @@
         display: block;
       }
       
-     
+      /* Main content adjustments */
       main {
         padding: 1.5rem 1rem;
       }
@@ -520,7 +492,21 @@
         margin-bottom: 1.5rem;
       }
       
-     
+      /* Design gallery - 2 columns on mobile */
+      .design-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+      }
+      
+      .design-image {
+        height: 150px; /* Adjusted for mobile */
+      }
+      
+      /* Web gallery */
+      .web-gallery {
+        grid-template-columns: 1fr;
+      }
+      
       .project {
         padding: 1.5rem;
       }
@@ -529,17 +515,7 @@
         font-size: 1.2rem;
       }
       
-      /* Design gallery */
-      .design-gallery {
-        grid-template-columns: 1fr;
-        gap: 1.2rem;
-      }
-      
-      .design-image {
-        height: 220px;
-      }
-      
-
+      /* Contact info */
       .contact-info {
         grid-template-columns: 1fr;
         text-align: center;
@@ -550,6 +526,7 @@
         gap: 0.3rem;
       }
       
+      /* Excel links */
       .excel-links {
         flex-direction: column;
         gap: 1rem;
@@ -559,7 +536,7 @@
         padding: 0.9rem;
       }
       
-
+      /* Lightbox */
       .lightbox-content {
         max-width: 95%;
       }
@@ -571,35 +548,22 @@
       }
     }
     
-   
+    /* Desktop Optimizations */
     @media (min-width: 769px) {
-   
-      .web-gallery {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      
-    
-      .design-gallery {
-        grid-template-columns: repeat(4, 1fr);
-      }
-      
-
       .contact-info {
         grid-template-columns: repeat(2, 1fr);
       }
       
-     
       .mobile-menu-btn {
         display: none;
       }
       
-     
       nav {
         display: flex;
       }
     }
     
-    
+    /* Animations */
     @keyframes fadeInUp {
       from {
         opacity: 0;
@@ -629,63 +593,24 @@
     
     <div class="header-content">
       <h1>Isaac Saltson</h1>
-      <p class="tagline">Web Developer | Graphic Designer | Excel & Powerpoint Specialist</p>
+      <p class="tagline">Graphic Designer | Excel & PowerPoint Specialist | Web Developer</p>
       
       <nav id="mainNav">
-        <a href="#web" class="active">Web Development</a>
-        <a href="#design">Graphic Design</a>
+        <a href="#design" class="active">Graphic Design</a>
         <a href="#excel">Excel & PowerPoint</a>
+        <a href="#web">Web Development</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section id="web">
-      <h2>Web Development Projects</h2>
-
-      <div class="web-gallery">
-
-      <article class="project">
-        <div class="tech-badge">HTML + PHP + JS</div>
-        <h3>Secure File Sharing Platform</h3>
-        <p>A web-based file transfer app that lets users upload and download files securely using unique tokens, accessible from any device.</p>
-        <a href="https://secure-file-sharer.wuaze.com" target="_blank">
-          <i class="fas fa-external-link-alt"></i> Live Demo
-        </a>
-      </article>
-
-
-      <article class="project">
-  <div class="tech-badge">Node.js + Socket.io</div>
-  <h3>Real-Time Chat Application</h3>
-  <p>Lightweight web chat app with real-time messaging using WebSockets, designed for secure and instant communication between users.</p>
-  <a href="https://chat-app-9xnr.onrender.com" target="_blank">
-    <i class="fas fa-external-link-alt"></i> Live Demo
-  </a>
-</article>
-
-       <article class="project hidden">
-              <div class="tech-badge">Py + TG Bot API</div>
-              <h3>Telegram File Transfer Bot</h3>
-              <p>A simple and secure Telegram bot that lets users send files from one device and retrieve them on another using a unique token.</p>
-              <a href="https://t.me/ezFileshare_bot" target="_blank">
-                <i class="fas fa-external-link-alt"></i> Live Demo
-              </a>
-            </article>
-
-      
-      <button class="show-more-btn" id="showMoreWeb">
-        <i class="fas fa-plus-circle"></i> Show More 
-      </button>
-    </section>
-
+    <!-- Graphic Design First -->
     <section id="design">
       <h2>Graphic Design Projects</h2>
       <div class="design-gallery">
-
-       <div class="design-item" data-image="img/ROOM6.jpg" data-caption="Brand flyer Room6 tv series · Canva">
+        <div class="design-item" data-image="img/ROOM6.jpg" data-caption="Brand flyer Room6 tv series · Photoshop">
           <div class="design-image">
-            <img src="img/ROOM6.jpg" alt="flyer Concept">
+            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dHYlMjBzZXJpZXN8ZW58MHx8MHx8fDA%3D" alt="Room6 TV Series Flyer">
           </div>
           <div class="design-info">
             <p>Brand flyer Room6 tv series</p>
@@ -695,7 +620,7 @@
         
         <div class="design-item" data-image="img/digi.jpg" data-caption="Demo Brand flyer for Digital Marketing · Canva">
           <div class="design-image">
-            <img src="img/digi.jpg" alt="brand flyer">
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZGlnaXRhbCUyMG1hcmtldGluZ3xlbnwwfHwwfHx8MA%3D%3D" alt="Digital Marketing Flyer">
           </div>
           <div class="design-info">
             <p>Demo Brand flyer for Digital Marketing</p>
@@ -705,7 +630,7 @@
 
         <div class="design-item" data-image="img/jubilee.jpg" data-caption="Flyer For Methodist Church Ghana · Photoshop">
           <div class="design-image">
-            <img src="img/jubilee.jpg" alt="flyer">
+            <img src="https://images.unsplash.com/photo-1544830291-4c5f3c6e9b4e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2h1cmNoJTIwZXZlbnR8ZW58MHx8MHx8fDA%3D" alt="Church Event Flyer">
           </div>
           <div class="design-info">
             <p>Flyer For Methodist Church Ghana</p>
@@ -715,7 +640,7 @@
         
         <div class="design-item" data-image="img/2.jpg" data-caption="Brand flyer for Capo Phone Deals · Canva">
           <div class="design-image">
-            <img src="img/2.jpg" alt="flyer Concept">
+            <img src="https://images.unsplash.com/photo-1600086827875-5e0f5d8c3c3c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGhvbmUlMjBkZWFscyUyMGZseWVyfGVufDB8fDB8fHww" alt="Phone Deals Flyer">
           </div>
           <div class="design-info">
             <p>Brand flyer for Capo Phone Deals</p>
@@ -723,10 +648,9 @@
           </div>
         </div>
         
-        <!-- Hidden projects -->
-        <div class="design-item hidden" data-image="img/3.jpg" data-caption="Brand flyer for Capo Phone Deals · Canva">
+        <div class="design-item" data-image="img/3.jpg" data-caption="Brand flyer for Capo Phone Deals · Canva">
           <div class="design-image">
-            <img src="img/3.jpg" alt="flyer Concept">
+            <img src="https://images.unsplash.com/photo-1600086827875-5e0f5d8c3c3c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGhvbmUlMjBkZWFscyUyMGZseWVyfGVufDB8fDB8fHww" alt="Phone Deals Flyer">
           </div>
           <div class="design-info">
             <p>Brand flyer for Capo Phone Deals</p>
@@ -734,19 +658,19 @@
           </div>
         </div>
         
-        <div class="design-item hidden" data-image="img/shadow.jpg" data-caption="Brand flyer for shadow's foothub · Canva/photoshop">
+        <div class="design-item" data-image="img/shadow.jpg" data-caption="Brand flyer for shadow's foothub · Canva/photoshop">
           <div class="design-image">
-            <img src="img/shadow.jpg" alt="flyer Concept">
+            <img src="https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9vdGh1YiUyMGZseWVyfGVufDB8fDB8fHww" alt="Foothub Flyer">
           </div>
           <div class="design-info">
             <p>Brand flyer for shadow's foothub</p>
-            <div class="design-tool">Canva/photoshop</div>
-          </div>/
+            <div class="design-tool">Canva/Photoshop</div>
+          </div>
         </div>
         
-         <div class="design-item hidden" data-image="img/poster1.jpg" data-caption="Brand flyer concept for Thrify Jess · Canva/ Photoshop">
+        <div class="design-item" data-image="img/poster1.jpg" data-caption="Brand flyer concept for Thrify Jess · Canva/ Photoshop">
           <div class="design-image">
-            <img src="img/poster1.jpg" alt="flyer Concept">
+            <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZmFzaGlvbiUyMGZseWVyfGVufDB8fDB8fHww" alt="Fashion Flyer">
           </div>
           <div class="design-info">
             <p>Brand flyer concept for Thrify Jess</p>
@@ -754,21 +678,19 @@
           </div>
         </div>
         
-        <div class="design-item hidden" data-image="img/1.jpg" data-caption="Brand flyer for Simple_E clothing · Canva">
+        <div class="design-item" data-image="img/1.jpg" data-caption="Brand flyer for Simple_E clothing · Canva">
           <div class="design-image">
-            <img src="img/1.jpg" alt="brand flyer">
+            <img src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2xvdGhpbmclMjBicmFuZCUyMGZseWVyfGVufDB8fDB8fHww" alt="Clothing Brand Flyer">
           </div>
           <div class="design-info">
             <p>Brand flyer for Simple_E clothing</p>
             <div class="design-tool">Canva</div>
           </div>
         </div>
-      
-      <button class="show-more-btn" id="showMoreDesign">
-        <i class="fas fa-plus-circle"></i> Show More Designs
-      </button>
+      </div>
     </section>
     
+    <!-- Excel & PowerPoint Second -->
     <section id="excel">
       <h2>Excel & PowerPoint</h2>
       <p>Explore my data visualization and presentation projects</p>
@@ -780,6 +702,40 @@
         <a href="#" class="excel-link">
           <i class="fas fa-file-powerpoint"></i> View PowerPoint Slides
         </a>
+      </div>
+    </section>
+    
+    <!-- Web Development Last -->
+    <section id="web">
+      <h2>Web Development Projects</h2>
+
+      <div class="web-gallery">
+        <article class="project">
+          <div class="tech-badge">HTML + PHP + JS</div>
+          <h3>Secure File Sharing Platform</h3>
+          <p>A web-based file transfer app that lets users upload and download files securely using unique tokens, accessible from any device.</p>
+          <a href="https://secure-file-sharer.wuaze.com" target="_blank">
+            <i class="fas fa-external-link-alt"></i> Live Demo
+          </a>
+        </article>
+
+        <article class="project">
+          <div class="tech-badge">Node.js + Socket.io</div>
+          <h3>Real-Time Chat Application</h3>
+          <p>Lightweight web chat app with real-time messaging using WebSockets, designed for secure and instant communication between users.</p>
+          <a href="https://chat-app-9xnr.onrender.com" target="_blank">
+            <i class="fas fa-external-link-alt"></i> Live Demo
+          </a>
+        </article>
+
+        <article class="project">
+          <div class="tech-badge">Py + TG Bot API</div>
+          <h3>Telegram File Transfer Bot</h3>
+          <p>A simple and secure Telegram bot that lets users send files from one device and retrieve them on another using a unique token.</p>
+          <a href="https://t.me/ezFileshare_bot" target="_blank">
+            <i class="fas fa-external-link-alt"></i> Live Demo
+          </a>
+        </article>
       </div>
     </section>
   </main>
@@ -881,54 +837,6 @@
         }
       });
     });
-    
-    // Show more projects functionality
-    const showMoreWebBtn = document.getElementById('showMoreWeb');
-    const webProjects = document.querySelectorAll('#web .project');
-    let webVisible = 2;
-    
-    showMoreWebBtn.addEventListener('click', () => {
-      // Show next 2 projects
-      for (let i = webVisible; i < webVisible + 2 && i < webProjects.length; i++) {
-        webProjects[i].classList.remove('hidden');
-      }
-      
-      webVisible += 2;
-      
-      // Hide button if all projects are visible
-      if (webVisible >= webProjects.length) {
-        showMoreWebBtn.style.display = 'none';
-      }
-    });
-    
-    // Show more designs functionality - shows 4 at a time
-    const showMoreDesignBtn = document.getElementById('showMoreDesign');
-    const designItems = document.querySelectorAll('#design .design-item');
-    let designVisible = 4; // Initial visible designs
-    
-    // Hide all designs beyond the initial 4
-    for (let i = designVisible; i < designItems.length; i++) {
-      designItems[i].classList.add('hidden');
-    }
-    
-    showMoreDesignBtn.addEventListener('click', () => {
-      // Show next 4 designs
-      for (let i = designVisible; i < designVisible + 4 && i < designItems.length; i++) {
-        designItems[i].classList.remove('hidden');
-      }
-      
-      designVisible += 4;
-      
-      // Hide button if all designs are visible
-      if (designVisible >= designItems.length) {
-        showMoreDesignBtn.style.display = 'none';
-      }
-    });
-    
-    // Hide design show more button if there are 4 or fewer designs
-    if (designItems.length <= 4) {
-      showMoreDesignBtn.style.display = 'none';
-    }
     
     // Lightbox functionality
     const lightbox = document.getElementById('lightbox');
