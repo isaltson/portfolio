@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Isaac Saltson - Portfolio</title>
+  <title>Isaac Saltson - Design Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-   
     :root {
       --primary: #2c3e50;
       --secondary: #f39c12;
@@ -16,6 +15,7 @@
       --gray: #e0e0e0;
       --text: #333;
       --text-light: #777;
+      --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     }
     
     * {
@@ -26,10 +26,11 @@
     
     body {
       font-family: 'Segoe UI', Roboto, -apple-system, sans-serif;
-      background: var(--light);
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
       color: var(--text);
       line-height: 1.6;
       overflow-x: hidden;
+      min-height: 100vh;
     }
     
     /* Header & Navigation */
@@ -39,75 +40,84 @@
       padding: 1.5rem 1rem;
       text-align: center;
       position: relative;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      background: linear-gradient(135deg, #2c3e50 0%, #1a2530 100%);
     }
     
     .header-content {
-      max-width: 1000px;
+      max-width: 1200px;
       margin: 0 auto;
     }
     
     h1 {
-      font-size: 1.8rem;
+      font-size: 2.2rem;
       margin-bottom: 0.5rem;
       font-weight: 700;
+      letter-spacing: 0.5px;
+      background: linear-gradient(to right, #f39c12, #ffd700);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     
     .tagline {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       margin-bottom: 1.5rem;
       color: rgba(255,255,255,0.85);
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
     }
     
     nav {
       display: flex;
       justify-content: center;
-      gap: 0.5rem;
+      gap: 0.8rem;
       flex-wrap: wrap;
+      margin-top: 1.2rem;
     }
     
     nav a {
       display: inline-block;
-      padding: 0.6rem 1.2rem;
+      padding: 0.7rem 1.5rem;
       background: rgba(255,255,255,0.1);
       color: var(--secondary);
       text-decoration: none;
       border-radius: 30px;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      font-size: 0.95rem;
+      font-weight: 600;
+      transition: var(--transition);
+      font-size: 1rem;
+      border: 2px solid transparent;
     }
     
     nav a:hover, nav a.active {
       background: var(--secondary);
       color: var(--primary);
+      border-color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
     
     /* Main Content */
     main {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 2rem 1.5rem;
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
     }
     
     section {
-      margin-bottom: 3rem;
+      margin-bottom: 4rem;
       padding-bottom: 1.5rem;
     }
     
     h1, h2, h3 {
-      font-weight: 600;
-    }
-    
-    h1 {
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
+      font-weight: 700;
     }
     
     h2 {
       text-align: center;
-      margin-bottom: 2rem;
-      font-size: 1.7rem;
+      margin-bottom: 2.5rem;
+      font-size: 2rem;
       color: var(--primary);
       position: relative;
       padding-bottom: 0.8rem;
@@ -119,41 +129,238 @@
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 80px;
-      height: 4px;
+      width: 100px;
+      height: 5px;
       background: var(--secondary);
-      border-radius: 2px;
+      border-radius: 3px;
     }
     
     h3 {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       margin: 0.5em 0;
+    }
+    
+    .section-intro {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 2.5rem;
+      color: var(--text-light);
+      font-size: 1.1rem;
+    }
+    
+    /* Design Gallery - Cascading Horizontal Layout */
+    .design-gallery-container {
+      position: relative;
+      padding: 1rem 0 3rem;
+    }
+    
+    .design-gallery {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 2rem;
+      padding: 2rem 1rem;
+      scrollbar-width: thin;
+      scrollbar-color: var(--secondary) transparent;
+      cursor: grab;
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    .design-gallery::-webkit-scrollbar {
+      height: 10px;
+    }
+    
+    .design-gallery::-webkit-scrollbar-thumb {
+      background: var(--secondary);
+      border-radius: 5px;
+    }
+    
+    .design-gallery::-webkit-scrollbar-track {
+      background: rgba(0,0,0,0.05);
+    }
+    
+    .design-item {
+      flex: 0 0 auto;
+      width: 320px;
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      transition: var(--transition);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transform-origin: center bottom;
+      transform: rotate(2deg) translateY(0);
+      will-change: transform;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+    
+    .design-item:nth-child(2n) {
+      transform: rotate(-1deg) translateY(15px);
+    }
+    
+    .design-item:nth-child(3n) {
+      transform: rotate(3deg) translateY(30px);
+    }
+    
+    .design-item:hover {
+      transform: rotate(0) translateY(-15px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      z-index: 10;
+    }
+    
+    .design-item.expanded {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) !important;
+      width: 90%;
+      max-width: 900px;
+      max-height: 90vh;
+      z-index: 1000;
+      overflow-y: auto;
+      animation: expand 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+    
+    @keyframes expand {
+      from { 
+        transform: translate(-50%, -50%) scale(0.8); 
+        opacity: 0;
+      }
+      to { 
+        transform: translate(-50%, -50%) scale(1); 
+        opacity: 1;
+      }
+    }
+    
+    .design-image {
+      height: 240px;
+      width: 100%;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4e7eb 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 15px;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    
+    .design-image img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      transition: transform 0.5s ease;
+      border-radius: 8px;
+    }
+    
+    .design-item:hover .design-image img {
+      transform: scale(1.05);
+    }
+    
+    .design-info {
+      padding: 1.5rem;
+      transition: background 0.3s;
+    }
+    
+    .design-item.expanded .design-info {
+      background: rgba(255,255,255,0.95);
+    }
+    
+    .design-info p {
+      font-size: 1rem;
+      color: var(--text-light);
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+    }
+    
+    .design-tool {
+      display: inline-block;
+      padding: 0.4rem 0.8rem;
+      background: rgba(243, 156, 18, 0.1);
+      color: var(--secondary);
+      font-weight: 700;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+    }
+    
+    .close-expanded {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      width: 40px;
+      height: 40px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      z-index: 10;
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    
+    .design-item.expanded .close-expanded {
+      opacity: 1;
+    }
+    
+    .close-expanded:hover {
+      background: #e74c3c;
+      transform: rotate(90deg);
+    }
+    
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      z-index: 999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+    
+    .overlay.active {
+      opacity: 1;
+      pointer-events: all;
     }
     
     /* Web Gallery */
     .web-gallery {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
     }
     
     .project {
       background: white;
-      border-radius: 12px;
-      padding: 1.8rem;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-      transition: all 0.3s ease;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      transition: var(--transition);
       position: relative;
       overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
     }
     
     .project:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
     }
     
     .project h3 {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       margin-bottom: 1rem;
       color: var(--primary);
     }
@@ -161,23 +368,27 @@
     .project p {
       color: var(--text-light);
       margin-bottom: 1.5rem;
+      flex-grow: 1;
     }
     
     .project a {
-      display: inline-block;
-      padding: 0.7rem 1.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      padding: 0.9rem 1.8rem;
       background: var(--primary);
       color: white;
       text-decoration: none;
-      border-radius: 6px;
-      font-weight: 500;
-      transition: background 0.3s;
-      position: relative;
-      z-index: 2;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s;
+      align-self: flex-start;
     }
     
     .project a:hover {
       background: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
     }
     
     .tech-badge {
@@ -186,80 +397,22 @@
       right: 0;
       background: var(--secondary);
       color: var(--primary);
-      padding: 0.5rem 1rem;
-      font-size: 0.8rem;
-      font-weight: 600;
-      border-radius: 0 12px 0 12px;
-    }
-    
-   
-    .design-gallery {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-    }
-    
-    .design-item {
-      background: white;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-      transition: all 0.3s ease;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-    }
-    
-    .design-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    }
-    
-    .design-image {
-      height: 200px; 
-      width: 100%;
-      background: #f5f5f5;
-      display: flex;
-      align-items: center; 
-      justify-content: center; 
-      overflow: hidden;
-      padding: 10px;/
-    }
-    
-    .design-image img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain; 
-      transition: transform 0.5s ease;
-    }
-    
-    .design-item:hover .design-image img {
-      transform: scale(1.05);
-    }
-    
-    .design-info {
-      padding: 1.2rem;
-    }
-    
-    .design-info p {
-      font-size: 0.95rem;
-      color: var(--text-light);
-      margin-bottom: 0.5rem;
-    }
-    
-    .design-tool {
-      font-size: 0.8rem;
-      color: var(--secondary);
-      font-weight: 600;
+      padding: 0.6rem 1.2rem;
+      font-size: 0.9rem;
+      font-weight: 700;
+      border-radius: 0 16px 0 16px;
     }
     
     /* Excel Section */
     #excel {
       text-align: center;
       background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      padding: 3rem 2rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      border: 1px solid rgba(0,0,0,0.05);
+      max-width: 900px;
+      margin: 0 auto;
     }
     
     .excel-links {
@@ -274,34 +427,39 @@
       display: inline-flex;
       align-items: center;
       gap: 0.7rem;
-      padding: 0.9rem 1.8rem;
-      background: var(--primary);
+      padding: 1rem 2.2rem;
+      background: linear-gradient(135deg, var(--primary) 0%, #1a2530 100%);
       color: white;
       text-decoration: none;
-      border-radius: 8px;
-      font-weight: 500;
+      border-radius: 10px;
+      font-weight: 600;
       transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
     
     .excel-link:hover {
-      background: var(--accent);
-      transform: translateY(-3px);
+      background: linear-gradient(135deg, var(--accent) 0%, #2980b9 100%);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
     }
     
     /* Footer */
     footer {
-      background: var(--primary);
+      background: linear-gradient(135deg, #2c3e50 0%, #1a2530 100%);
       color: white;
       text-align: center;
-      padding: 2.5rem 1.5rem;
+      padding: 3.5rem 1.5rem 2.5rem;
+      margin-top: 4rem;
+      clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%);
     }
     
     .contact-info {
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.2rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
     }
     
     .contact-item {
@@ -309,13 +467,23 @@
       align-items: center;
       justify-content: center;
       gap: 0.8rem;
-      font-size: 1rem;
+      font-size: 1.1rem;
+      padding: 1rem;
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+      transition: transform 0.3s;
+    }
+    
+    .contact-item:hover {
+      transform: translateY(-5px);
+      background: rgba(255,255,255,0.1);
     }
     
     .contact-item a {
       color: var(--secondary);
       text-decoration: none;
       transition: color 0.3s;
+      font-weight: 500;
     }
     
     .contact-item a:hover {
@@ -334,24 +502,24 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 45px;
-      height: 45px;
+      width: 50px;
+      height: 50px;
       background: rgba(255,255,255,0.1);
       color: var(--secondary);
       border-radius: 50%;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       transition: all 0.3s ease;
     }
     
     .social-icons a:hover {
       background: var(--secondary);
       color: var(--primary);
-      transform: translateY(-3px);
+      transform: translateY(-5px);
     }
     
     .copyright {
-      margin-top: 2rem;
-      font-size: 0.9rem;
+      margin-top: 2.5rem;
+      font-size: 0.95rem;
       color: rgba(255,255,255,0.7);
     }
     
@@ -364,128 +532,61 @@
       background: transparent;
       border: none;
       color: white;
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       cursor: pointer;
       z-index: 10;
-    }
-    
-    /* Show More/Less Button */
-    .show-more-btn {
-      display: block;
-      margin: 2rem auto 0;
-      padding: 0.8rem 2rem;
-      background: var(--primary);
-      color: white;
-      border: none;
-      border-radius: 30px;
-      font-size: 1rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    
-    .show-more-btn:hover {
-      background: var(--accent);
-      transform: translateY(-3px);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-    }
-    
-    .hidden {
-      display: none;
-    }
-    
-    
-    .lightbox {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.9);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-    }
-    
-    .lightbox.active {
-      opacity: 1;
-      pointer-events: all;
-    }
-    
-    .lightbox-content {
-      max-width: 90%;
-      max-height: 90%;
-      position: relative;
-    }
-    
-    .lightbox-image {
-      max-width: 100%;
-      max-height: 80vh;
-      border-radius: 8px;
-      box-shadow: 0 5px 25px rgba(0,0,0,0.5);
-    }
-    
-    .lightbox-caption {
-      color: white;
-      text-align: center;
-      margin-top: 1rem;
-      font-size: 1.1rem;
-    }
-    
-    .lightbox-close {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      color: white;
-      font-size: 2rem;
-      background: none;
-      border: none;
-      cursor: pointer;
-      transition: color 0.3s;
-    }
-    
-    .lightbox-close:hover {
-      color: var(--secondary);
-    }
-    
-    .lightbox-nav {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      padding: 0 20px;
-    }
-    
-    .lightbox-btn {
-      background: rgba(255, 255, 255, 0.2);
-      color: white;
-      border: none;
       width: 50px;
       height: 50px;
       border-radius: 50%;
-      font-size: 1.5rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background: rgba(255,255,255,0.1);
       transition: all 0.3s;
     }
     
-    .lightbox-btn:hover {
+    .mobile-menu-btn:hover {
       background: var(--secondary);
       color: var(--primary);
     }
     
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    section {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    
+    .design-item, .project {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 992px) {
+      .design-gallery {
+        gap: 1.5rem;
+      }
+      
+      .design-item {
+        width: 280px;
+      }
+    }
     
     @media (max-width: 768px) {
-     
+      h1 {
+        font-size: 1.8rem;
+      }
+      
+      .tagline {
+        font-size: 1rem;
+      }
+      
       nav {
         flex-direction: column;
         align-items: center;
@@ -496,57 +597,45 @@
       
       nav.active {
         display: flex;
-      animation: fadeIn 0.3s;
-      position: relative;
+        animation: fadeIn 0.3s;
+        position: relative;
         z-index: 5;
       }
       
       .mobile-menu-btn {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
       
-     
       main {
-        padding: 1.5rem 1rem;
+        padding: 0 1rem;
+        margin-top: 1.5rem;
       }
       
       section {
-        margin-bottom: 2.5rem;
+        margin-bottom: 3rem;
       }
       
       h2 {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
         margin-bottom: 1.5rem;
       }
       
-     
       .project {
-        padding: 1.5rem;
+        padding: 1.8rem;
       }
       
-      .project h3 {
-        font-size: 1.2rem;
-      }
-      
-      /* Design gallery */
-      .design-gallery {
-        grid-template-columns: 1fr;
-        gap: 1.2rem;
+      .design-item {
+        width: 260px;
       }
       
       .design-image {
-        height: 220px;
+        height: 200px;
       }
       
-
       .contact-info {
         grid-template-columns: 1fr;
-        text-align: center;
-      }
-      
-      .contact-item {
-        flex-direction: column;
-        gap: 0.3rem;
       }
       
       .excel-links {
@@ -555,68 +644,19 @@
       }
       
       .excel-link {
-        padding: 0.9rem;
-      }
-      
-
-      .lightbox-content {
-        max-width: 95%;
-      }
-      
-      .lightbox-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem;
+        width: 100%;
+        justify-content: center;
       }
     }
     
-   
     @media (min-width: 769px) {
-   
-      .web-gallery {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      
-    
-      .design-gallery {
-        grid-template-columns: repeat(4, 1fr);
-      }
-      
-
-      .contact-info {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      
-     
       .mobile-menu-btn {
         display: none;
       }
       
-     
       nav {
         display: flex;
       }
-    }
-    
-    
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
-    section {
-      animation: fadeInUp 0.6s ease-out forwards;
-    }
-    
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
     }
   </style>
 </head>
@@ -628,156 +668,161 @@
     
     <div class="header-content">
       <h1>Isaac Saltson</h1>
-      <p class="tagline">Web Developer | Graphic Designer | Excel & Powerpoint Specialist</p>
+      <p class="tagline">Creative Graphic Designer | Full Stack Developer | Data Visualization Expert</p>
       
       <nav id="mainNav">
-        <a href="#web" class="active">Web Development</a>
-        <a href="#design">Graphic Design</a>
+        <a href="#design" class="active">Graphic Design</a>
+        <a href="#web">Web Development</a>
         <a href="#excel">Excel & PowerPoint</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section id="web">
-      <h2>Web Development Projects</h2>
-
-      <div class="web-gallery">
-
-      <article class="project">
-        <div class="tech-badge">HTML + PHP + JS</div>
-        <h3>Secure File Sharing Platform</h3>
-        <p>A web-based file transfer app that lets users upload and download files securely using unique tokens, accessible from any device.</p>
-        <a href="https://secure-file-sharer.wuaze.com" target="_blank">
-          <i class="fas fa-external-link-alt"></i> Live Demo
-        </a>
-      </article>
-
-
-      <article class="project">
-  <div class="tech-badge">Node.js + Socket.io</div>
-  <h3>Real-Time Chat Application</h3>
-  <p>Lightweight web chat app with real-time messaging using WebSockets, designed for secure and instant communication between users.</p>
-  <a href="https://chat-app-9xnr.onrender.com" target="_blank">
-    <i class="fas fa-external-link-alt"></i> Live Demo
-  </a>
-</article>
-
-       <article class="project hidden">
-              <div class="tech-badge">Py + TG Bot API</div>
-              <h3>Telegram File Transfer Bot</h3>
-              <p>A simple and secure Telegram bot that lets users send files from one device and retrieve them on another using a unique token.</p>
-              <a href="https://t.me/ezFileshare_bot" target="_blank">
-                <i class="fas fa-external-link-alt"></i> Live Demo
-              </a>
-            </article>
-
-      
-      <button class="show-more-btn" id="showMoreWeb">
-        <i class="fas fa-plus-circle"></i> Show More 
-      </button>
-    </section>
-
+    <!-- Graphic Design Section First -->
     <section id="design">
       <h2>Graphic Design Projects</h2>
-      <div class="design-gallery">
-
-       <div class="design-item" data-image="img/ROOM6.jpg" data-caption="Brand flyer Room6 tv series · Canva">
-          <div class="design-image">
-            <img src="img/ROOM6.jpg" alt="flyer Concept">
-          </div>
-          <div class="design-info">
-            <p>Brand flyer Room6 tv series</p>
-            <div class="design-tool">Photoshop</div>
-          </div>
-        </div>
-        
-        <div class="design-item" data-image="img/digi.jpg" data-caption="Demo Brand flyer for Digital Marketing · Canva">
-          <div class="design-image">
-            <img src="img/digi.jpg" alt="brand flyer">
-          </div>
-          <div class="design-info">
-            <p>Demo Brand flyer for Digital Marketing</p>
-            <div class="design-tool">Canva</div>
-          </div>
-        </div>
-
-        <div class="design-item" data-image="img/jubilee.jpg" data-caption="Flyer For Methodist Church Ghana · Photoshop">
-          <div class="design-image">
-            <img src="img/jubilee.jpg" alt="flyer">
-          </div>
-          <div class="design-info">
-            <p>Flyer For Methodist Church Ghana</p>
-            <div class="design-tool">Photoshop</div>
-          </div>
-        </div>
-        
-        <div class="design-item" data-image="img/2.jpg" data-caption="Brand flyer for Capo Phone Deals · Canva">
-          <div class="design-image">
-            <img src="img/2.jpg" alt="flyer Concept">
-          </div>
-          <div class="design-info">
-            <p>Brand flyer for Capo Phone Deals</p>
-            <div class="design-tool">Canva</div>
-          </div>
-        </div>
-        
-        <!-- Hidden projects -->
-        <div class="design-item hidden" data-image="img/3.jpg" data-caption="Brand flyer for Archibald Phone Deals · Canva">
-          <div class="design-image">
-            <img src="img/3.jpg" alt="flyer Concept">
-          </div>
-          <div class="design-info">
-            <p>Brand flyer for Archibald Phone Deals</p>
-            <div class="design-tool">Canva</div>
-          </div>
-        </div>
-        
-        <div class="design-item hidden" data-image="img/shadow.jpg" data-caption="Brand flyer for shadow's foothub · Canva/photoshop">
-          <div class="design-image">
-            <img src="img/shadow.jpg" alt="flyer Concept">
-          </div>
-          <div class="design-info">
-            <p>Brand flyer for shadow's foothub</p>
-            <div class="design-tool">Canva/photoshop</div>
-          </div>/
-        </div>
-        
-         <div class="design-item hidden" data-image="img/poster1.jpg" data-caption="Brand flyer concept for Thrify Jess · Canva/ Photoshop">
-          <div class="design-image">
-            <img src="img/poster1.jpg" alt="flyer Concept">
-          </div>
-          <div class="design-info">
-            <p>Brand flyer concept for Thrify Jess</p>
-            <div class="design-tool">Canva/Photoshop</div>
-          </div>
-        </div>
-        
-        <div class="design-item hidden" data-image="img/1.jpg" data-caption="Brand flyer for Simple_E clothing · Canva">
-          <div class="design-image">
-            <img src="img/1.jpg" alt="brand flyer">
-          </div>
-          <div class="design-info">
-            <p>Brand flyer for Simple_E clothing</p>
-            <div class="design-tool">Canva</div>
-          </div>
-        </div>
+      <p class="section-intro">Explore my creative design portfolio featuring brand identities, marketing materials, and visual concepts crafted with passion and precision.</p>
       
-      <button class="show-more-btn" id="showMoreDesign">
-        <i class="fas fa-plus-circle"></i> Show More
-      </button>
+      <div class="design-gallery-container">
+        <div class="design-gallery">
+          <div class="design-item" data-caption="Brand flyer Room6 tv series · Photoshop">
+            <div class="design-image">
+              <img src="img/ROOM6.jpg" alt="Room6 TV Series Flyer">
+            </div>
+            <div class="design-info">
+              <p>Brand flyer Room6 tv series</p>
+              <div class="design-tool">Photoshop</div>
+            </div>
+            <button class="close-expanded"><i class="fas fa-times"></i></button>
+          </div>
+          
+          <div class="design-item" data-caption="Demo Brand flyer for Digital Marketing · Canva">
+            <div class="design-image">
+              <img src="img/digi.jpg" alt="Digital Marketing Flyer">
+            </div>
+            <div class="design-info">
+              <p>Demo Brand flyer for Digital Marketing</p>
+              <div class="design-tool">Canva</div>
+            </div>
+            <button class="close-expanded"><i class="fas fa-times"></i></button>
+          </div>
+
+          <div class="design-item" data-caption="Flyer For Methodist Church Ghana · Photoshop">
+            <div class="design-image">
+              <img src="img/jubilee.jpg" alt="Church Flyer">
+            </div>
+            <div class="design-info">
+              <p>Flyer For Methodist Church Ghana</p>
+              <div class="design-tool">Photoshop</div>
+            </div>
+            <button class="close-expanded"><i class="fas fa-times"></i></button>
+          </div>
+          
+          <div class="design-item" data-caption="Brand flyer for Capo Phone Deals · Canva">
+            <div class="design-image">
+              <img src="img/2.jpg" alt="Phone Deals Flyer">
+            </div>
+            <div class="design-info">
+              <p>Brand flyer for Capo Phone Deals</p>
+              <div class="design-tool">Canva</div>
+            </div>
+            <button class="close-expanded"><i class="fas fa-times"></i></button>
+          </div>
+          
+          <div class="design-item" data-caption="Brand flyer for Archibald Phone Deals · Canva">
+            <div class="design-image">
+              <img src="img/3.jpg" alt="Phone Deals Concept">
+            </div>
+            <div class="design-info">
+              <p>Brand flyer for Archibald Phone Deals</p>
+              <div class="design-tool">Canva</div>
+            </div>
+            <button class="close-expanded"><i class="fas fa-times"></i></button>
+          </div>
+          
+          <div class="design-item" data-caption="Brand flyer for shadow's foothub · Canva/Photoshop">
+            <div class="design-image">
+              <img src="img/shadow.jpg" alt="Foodhub Flyer">
+            </div>
+            <div class="design-info">
+              <p>Brand flyer for shadow's foothub</p>
+              <div class="design-tool">Canva/Photoshop</div>
+            </div>
+            <button class="close-expanded"><i class="fas fa-times"></i></button>
+          </div>
+          
+          <div class="design-item" data-caption="Brand flyer concept for Thrify Jess · Canva/Photoshop">
+            <div class="design-image">
+              <img src="img/poster1.jpg" alt="Fashion Flyer">
+            </div>
+            <div class="design-info">
+              <p>Brand flyer concept for Thrify Jess</p>
+              <div class="design-tool">Canva/Photoshop</div>
+            </div>
+            <button class="close-expanded"><i class="fas fa-times"></i></button>
+          </div>
+          
+          <div class="design-item" data-caption="Brand flyer for Simple_E clothing · Canva">
+            <div class="design-image">
+              <img src="img/1.jpg" alt="Clothing Brand Flyer">
+            </div>
+            <div class="design-info">
+              <p>Brand flyer for Simple_E clothing</p>
+              <div class="design-tool">Canva</div>
+            </div>
+            <button class="close-expanded"><i class="fas fa-times"></i></button>
+          </div>
+        </div>
+        <div class="overlay"></div>
+      </div>
+    </section>
+    
+    <!-- Web Development Section Second -->
+    <section id="web">
+      <h2>Web Development Projects</h2>
+      <p class="section-intro">My technical projects showcase full-stack development skills with a focus on practical, user-friendly solutions.</p>
+      
+      <div class="web-gallery">
+        <article class="project">
+          <div class="tech-badge">HTML + PHP + JS</div>
+          <h3>Secure File Sharing Platform</h3>
+          <p>A web-based file transfer app that lets users upload and download files securely using unique tokens, accessible from any device.</p>
+          <a href="https://secure-file-sharer.wuaze.com" target="_blank">
+            <i class="fas fa-external-link-alt"></i> Live Demo
+          </a>
+        </article>
+
+        <article class="project">
+          <div class="tech-badge">Node.js + Socket.io</div>
+          <h3>Real-Time Chat Application</h3>
+          <p>Lightweight web chat app with real-time messaging using WebSockets, designed for secure and instant communication between users.</p>
+          <a href="https://chat-app-9xnr.onrender.com" target="_blank">
+            <i class="fas fa-external-link-alt"></i> Live Demo
+          </a>
+        </article>
+
+        <article class="project">
+          <div class="tech-badge">Py + TG Bot API</div>
+          <h3>Telegram File Transfer Bot</h3>
+          <p>A simple and secure Telegram bot that lets users send files from one device and retrieve them on another using a unique token.</p>
+          <a href="https://t.me/ezFileshare_bot" target="_blank">
+            <i class="fas fa-external-link-alt"></i> Live Demo
+          </a>
+        </article>
+      </div>
     </section>
     
     <section id="excel">
       <h2>Excel & PowerPoint</h2>
-      <p>Explore my data visualization and presentation projects</p>
+      <p class="section-intro">Data visualization and presentation solutions that transform complex information into compelling visual stories.</p>
       
       <div class="excel-links">
         <a href="#" class="excel-link">
-          <i class="fas fa-file-excel"></i> View Excel Dashboard
+          <i class="fas fa-file-excel"></i> View Excel Dashboards
         </a>
         <a href="#" class="excel-link">
-          <i class="fas fa-file-powerpoint"></i> View PowerPoint Slides
+          <i class="fas fa-file-powerpoint"></i> View PowerPoint Presentations
         </a>
       </div>
     </section>
@@ -814,28 +859,9 @@
     </div>
     
     <div class="copyright">
-      &copy; 2023 Isaac Saltson. All rights reserved.
+      &copy; 2023 Isaac Saltson. All rights reserved. | Designed with ❤️
     </div>
   </footer>
-
-  <!-- Lightbox -->
-  <div class="lightbox" id="lightbox">
-    <button class="lightbox-close" id="lightboxClose">
-      <i class="fas fa-times"></i>
-    </button>
-    <div class="lightbox-nav">
-      <button class="lightbox-btn" id="lightboxPrev">
-        <i class="fas fa-chevron-left"></i>
-      </button>
-      <button class="lightbox-btn" id="lightboxNext">
-        <i class="fas fa-chevron-right"></i>
-      </button>
-    </div>
-    <div class="lightbox-content">
-      <img class="lightbox-image" id="lightboxImage" src="" alt="">
-      <div class="lightbox-caption" id="lightboxCaption"></div>
-    </div>
-  </div>
 
   <script>
     // Mobile menu toggle
@@ -863,6 +889,10 @@
         const icon = menuToggle.querySelector('i');
         icon.classList.remove('fa-times');
         icon.classList.add('fa-bars');
+        
+        // Update active link
+        navLinks.forEach(navLink => navLink.classList.remove('active'));
+        link.classList.add('active');
       });
     });
     
@@ -881,129 +911,130 @@
       });
     });
     
-    // Show more projects functionality
-    const showMoreWebBtn = document.getElementById('showMoreWeb');
-    const webProjects = document.querySelectorAll('#web .project');
-    let webVisible = 2;
+    // Expandable design items
+    const designItems = document.querySelectorAll('.design-item');
+    const overlay = document.querySelector('.overlay');
     
-    showMoreWebBtn.addEventListener('click', () => {
-      // Show next 2 projects
-      for (let i = webVisible; i < webVisible + 2 && i < webProjects.length; i++) {
-        webProjects[i].classList.remove('hidden');
-      }
+    designItems.forEach(item => {
+      const closeBtn = item.querySelector('.close-expanded');
       
-      webVisible += 2;
+      // Expand item on click
+      item.addEventListener('click', (e) => {
+        // Don't expand if clicking the close button
+        if (e.target === closeBtn || e.target.closest('.close-expanded')) return;
+        
+        // Collapse any other expanded items
+        designItems.forEach(otherItem => {
+          if (otherItem !== item && otherItem.classList.contains('expanded')) {
+            otherItem.classList.remove('expanded');
+          }
+        });
+        
+        // Expand the clicked item
+        item.classList.add('expanded');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
       
-      // Hide button if all projects are visible
-      if (webVisible >= webProjects.length) {
-        showMoreWebBtn.style.display = 'none';
-      }
-    });
-    
-    // Show more designs functionality - shows 4 at a time
-    const showMoreDesignBtn = document.getElementById('showMoreDesign');
-    const designItems = document.querySelectorAll('#design .design-item');
-    let designVisible = 4; // Initial visible designs
-    
-    // Hide all designs beyond the initial 4
-    for (let i = designVisible; i < designItems.length; i++) {
-      designItems[i].classList.add('hidden');
-    }
-    
-    showMoreDesignBtn.addEventListener('click', () => {
-      // Show next 4 designs
-      for (let i = designVisible; i < designVisible + 4 && i < designItems.length; i++) {
-        designItems[i].classList.remove('hidden');
-      }
-      
-      designVisible += 4;
-      
-      // Hide button if all designs are visible
-      if (designVisible >= designItems.length) {
-        showMoreDesignBtn.style.display = 'none';
-      }
-    });
-    
-    // Hide design show more button if there are 4 or fewer designs
-    if (designItems.length <= 4) {
-      showMoreDesignBtn.style.display = 'none';
-    }
-    
-    // Lightbox functionality
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImage = document.getElementById('lightboxImage');
-    const lightboxCaption = document.getElementById('lightboxCaption');
-    const lightboxClose = document.getElementById('lightboxClose');
-    const lightboxPrev = document.getElementById('lightboxPrev');
-    const lightboxNext = document.getElementById('lightboxNext');
-    
-    // Get all design items that open the lightbox
-    const galleryItems = document.querySelectorAll('.design-item');
-    let currentIndex = 0;
-    
-    // Function to open lightbox
-    function openLightbox(index) {
-      const item = galleryItems[index];
-      const imageUrl = item.getAttribute('data-image');
-      const caption = item.getAttribute('data-caption');
-      
-      lightboxImage.src = imageUrl;
-      lightboxCaption.textContent = caption;
-      lightbox.classList.add('active');
-      document.body.style.overflow = 'hidden'; // Prevent scrolling
-      currentIndex = index;
-    }
-    
-    // Add click event to each gallery item
-    galleryItems.forEach((item, index) => {
-      item.addEventListener('click', () => {
-        openLightbox(index);
+      // Close expanded item
+      closeBtn.addEventListener('click', () => {
+        item.classList.remove('expanded');
+        overlay.classList.remove('active');
+        document.body.style.overflow = 'auto';
       });
     });
     
-    // Close lightbox
-    lightboxClose.addEventListener('click', () => {
-      lightbox.classList.remove('active');
-      document.body.style.overflow = 'auto'; // Enable scrolling
-    });
-    
-    // Close lightbox when clicking outside the image
-    lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) {
-        lightbox.classList.remove('active');
+    // Close expanded item when clicking outside
+    overlay.addEventListener('click', () => {
+      const expandedItem = document.querySelector('.design-item.expanded');
+      if (expandedItem) {
+        expandedItem.classList.remove('expanded');
+        overlay.classList.remove('active');
         document.body.style.overflow = 'auto';
       }
     });
     
-    // Navigation between images
-    lightboxPrev.addEventListener('click', (e) => {
-      e.stopPropagation();
-      currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
-      openLightbox(currentIndex);
-    });
-    
-    lightboxNext.addEventListener('click', (e) => {
-      e.stopPropagation();
-      currentIndex = (currentIndex + 1) % galleryItems.length;
-      openLightbox(currentIndex);
-    });
-    
-    // Keyboard navigation
+    // Close expanded item with Escape key
     document.addEventListener('keydown', (e) => {
-      if (lightbox.classList.contains('active')) {
-        if (e.key === 'Escape') {
-          lightbox.classList.remove('active');
+      if (e.key === 'Escape') {
+        const expandedItem = document.querySelector('.design-item.expanded');
+        if (expandedItem) {
+          expandedItem.classList.remove('expanded');
+          overlay.classList.remove('active');
           document.body.style.overflow = 'auto';
         }
-        if (e.key === 'ArrowLeft') {
-          currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
-          openLightbox(currentIndex);
-        }
-        if (e.key === 'ArrowRight') {
-          currentIndex = (currentIndex + 1) % galleryItems.length;
-          openLightbox(currentIndex);
-        }
       }
+    });
+    
+    // Make design gallery draggable
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+    const gallery = document.querySelector('.design-gallery');
+    
+    gallery.addEventListener('mousedown', (e) => {
+      isDown = true;
+      gallery.classList.add('active');
+      startX = e.pageX - gallery.offsetLeft;
+      scrollLeft = gallery.scrollLeft;
+    });
+    
+    gallery.addEventListener('mouseleave', () => {
+      isDown = false;
+      gallery.classList.remove('active');
+    });
+    
+    gallery.addEventListener('mouseup', () => {
+      isDown = false;
+      gallery.classList.remove('active');
+    });
+    
+    gallery.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - gallery.offsetLeft;
+      const walk = (x - startX) * 2; // scroll-fast factor
+      gallery.scrollLeft = scrollLeft - walk;
+    });
+    
+    // Touch events for mobile
+    gallery.addEventListener('touchstart', (e) => {
+      isDown = true;
+      startX = e.touches[0].pageX - gallery.offsetLeft;
+      scrollLeft = gallery.scrollLeft;
+    });
+    
+    gallery.addEventListener('touchend', () => {
+      isDown = false;
+    });
+    
+    gallery.addEventListener('touchmove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.touches[0].pageX - gallery.offsetLeft;
+      const walk = (x - startX) * 2;
+      gallery.scrollLeft = scrollLeft - walk;
+    });
+    
+    // Animation on scroll
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    
+    // Observe all design items and projects
+    document.querySelectorAll('.design-item, .project').forEach(item => {
+      observer.observe(item);
     });
   </script>
 </body>
