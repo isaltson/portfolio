@@ -133,7 +133,7 @@
     .design-gallery {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
+      gap: 1.2rem;
     }
     
     .design-item {
@@ -153,20 +153,20 @@
     }
     
     .design-image {
-      height: 200px; 
+      height: 220px;
       width: 100%;
       background: #f5f5f5;
       display: flex;
-      align-items: center; 
-      justify-content: center; 
+      align-items: center;
+      justify-content: center;
       overflow: hidden;
       padding: 10px;
     }
     
     .design-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
       transition: transform 0.5s ease;
     }
     
@@ -175,19 +175,30 @@
     }
     
     .design-info {
-      padding: 1.2rem;
+      padding: 0.8rem 1rem;
+      min-height: 100px;
     }
     
     .design-info p {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       color: var(--text-light);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     
     .design-tool {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       color: var(--secondary);
       font-weight: 600;
+      padding: 0.3rem 0.6rem;
+      background: rgba(243, 156, 18, 0.1);
+      border-radius: 4px;
+      display: inline-block;
     }
     
     /* Excel Section - Second section */
@@ -235,7 +246,7 @@
     .project {
       background: white;
       border-radius: 12px;
-      padding: 1.8rem;
+      padding: 1.5rem;
       box-shadow: 0 5px 15px rgba(0,0,0,0.05);
       transition: all 0.3s ease;
       position: relative;
@@ -255,7 +266,9 @@
     
     .project p {
       color: var(--text-light);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
     }
     
     .project a {
@@ -293,6 +306,7 @@
       color: white;
       text-align: center;
       padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
     }
     
     .contact-info {
@@ -499,7 +513,16 @@
       }
       
       .design-image {
-        height: 150px; /* Adjusted for mobile */
+        height: 180px;
+      }
+      
+      .design-info {
+        min-height: 90px;
+        padding: 0.6rem 0.8rem;
+      }
+      
+      .design-info p {
+        font-size: 0.85rem;
       }
       
       /* Web gallery */
@@ -508,7 +531,7 @@
       }
       
       .project {
-        padding: 1.5rem;
+        padding: 1.3rem;
       }
       
       .project h3 {
@@ -610,7 +633,7 @@
       <div class="design-gallery">
         <div class="design-item" data-image="img/ROOM6.jpg" data-caption="Brand flyer Room6 tv series · Photoshop">
           <div class="design-image">
-            <img src="img/ROOM6.jpg" alt="Room6 TV Series Flyer">
+            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dHYlMjBzZXJpZXN8ZW58MHx8MHx8fDA%3D" alt="Room6 TV Series Flyer">
           </div>
           <div class="design-info">
             <p>Brand flyer Room6 tv series</p>
@@ -620,7 +643,7 @@
         
         <div class="design-item" data-image="img/digi.jpg" data-caption="Demo Brand flyer for Digital Marketing · Canva">
           <div class="design-image">
-            <img src="img/digi.jpg" alt="Digital Marketing Flyer">
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZGlnaXRhbCUyMG1hcmtldGluZ3xlbnwwfHwwfHx8MA%3D%3D" alt="Digital Marketing Flyer">
           </div>
           <div class="design-info">
             <p>Demo Brand flyer for Digital Marketing</p>
@@ -630,7 +653,7 @@
 
         <div class="design-item" data-image="img/jubilee.jpg" data-caption="Flyer For Methodist Church Ghana · Photoshop">
           <div class="design-image">
-            <img src="img/jubilee.jpg" alt="Church Event Flyer">
+            <img src="https://images.unsplash.com/photo-1544830291-4c5f3c6e9b4e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2h1cmNoJTIwZXZlbnR8ZW58MHx8MHx8fDA%3D" alt="Church Event Flyer">
           </div>
           <div class="design-info">
             <p>Flyer For Methodist Church Ghana</p>
@@ -640,7 +663,7 @@
         
         <div class="design-item" data-image="img/2.jpg" data-caption="Brand flyer for Capo Phone Deals · Canva">
           <div class="design-image">
-            <img src="img/2.jpg" alt="Phone Deals Flyer">
+            <img src="https://images.unsplash.com/photo-1600086827875-5e0f5d8c3c3c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGhvbmUlMjBkZWFscyUyMGZseWVyfGVufDB8fDB8fHww" alt="Phone Deals Flyer">
           </div>
           <div class="design-info">
             <p>Brand flyer for Capo Phone Deals</p>
@@ -650,7 +673,7 @@
         
         <div class="design-item" data-image="img/3.jpg" data-caption="Brand flyer for Capo Phone Deals · Canva">
           <div class="design-image">
-            <img src="img/3.jpg" alt="Phone Deals Flyer">
+            <img src="https://images.unsplash.com/photo-1600086827875-5e0f5d8c3c3c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGhvbmUlMjBkZWFscyUyMGZseWVyfGVufDB8fDB8fHww" alt="Phone Deals Flyer">
           </div>
           <div class="design-info">
             <p>Brand flyer for Capo Phone Deals</p>
@@ -660,7 +683,7 @@
         
         <div class="design-item" data-image="img/shadow.jpg" data-caption="Brand flyer for shadow's foothub · Canva/photoshop">
           <div class="design-image">
-            <img src="img/shadow.jpg" alt="Foothub Flyer">
+            <img src="https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9vdGh1YiUyMGZseWVyfGVufDB8fDB8fHww" alt="Foothub Flyer">
           </div>
           <div class="design-info">
             <p>Brand flyer for shadow's foothub</p>
@@ -670,7 +693,7 @@
         
         <div class="design-item" data-image="img/poster1.jpg" data-caption="Brand flyer concept for Thrify Jess · Canva/ Photoshop">
           <div class="design-image">
-            <img src="img/poster1.jpg" alt="Fashion Flyer">
+            <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZmFzaGlvbiUyMGZseWVyfGVufDB8fDB8fHww" alt="Fashion Flyer">
           </div>
           <div class="design-info">
             <p>Brand flyer concept for Thrify Jess</p>
@@ -680,7 +703,7 @@
         
         <div class="design-item" data-image="img/1.jpg" data-caption="Brand flyer for Simple_E clothing · Canva">
           <div class="design-image">
-            <img src="img/1.jpg" alt="Clothing Brand Flyer">
+            <img src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2xvdGhpbmclMjBicmFuZCUyMGZseWVyfGVufDB8fDB8fHww" alt="Clothing Brand Flyer">
           </div>
           <div class="design-info">
             <p>Brand flyer for Simple_E clothing</p>
