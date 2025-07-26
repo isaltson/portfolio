@@ -25,7 +25,7 @@
     
     body {
       font-family: 'Segoe UI', Roboto, -apple-system, sans-serif;
-      background: #f5f7fa;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4e7ec 100%);
       color: var(--text);
       line-height: 1.6;
       overflow-x: hidden;
@@ -33,7 +33,7 @@
     
     /* Header & Navigation */
     header {
-      background: var(--primary);
+      background: linear-gradient(135deg, var(--primary) 0%, #1a2530 100%);
       color: white;
       padding: 1.8rem 1rem;
       text-align: center;
@@ -97,6 +97,10 @@
     
     section {
       margin-bottom: 4rem;
+      padding: 2.5rem;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     }
     
     h1, h2, h3 {
@@ -146,6 +150,7 @@
       flex-direction: column;
       box-shadow: 0 8px 20px rgba(0,0,0,0.08);
       background: white;
+      position: relative;
     }
     
     .design-item:hover {
@@ -201,6 +206,7 @@
     #excel {
       text-align: center;
       padding: 2.5rem 0;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     }
     
     #excel p {
@@ -255,6 +261,7 @@
       transition: all 0.4s ease;
       position: relative;
       overflow: hidden;
+      border: 1px solid #eee;
     }
     
     .project:hover {
@@ -315,7 +322,7 @@
     
     /* Footer */
     footer {
-      background: var(--primary);
+      background: linear-gradient(135deg, var(--primary) 0%, #1a2530 100%);
       color: white;
       text-align: center;
       padding: 4rem 1.5rem 2.5rem;
@@ -337,15 +344,8 @@
       justify-content: center;
       gap: 1rem;
       font-size: 1.15rem;
-      padding: 1.2rem;
-      background: rgba(255,255,255,0.08);
-      border-radius: 10px;
+      color: white;
       transition: all 0.3s ease;
-    }
-    
-    .contact-item:hover {
-      background: rgba(255,255,255,0.15);
-      transform: translateY(-3px);
     }
     
     .contact-item a {
@@ -353,6 +353,9 @@
       text-decoration: none;
       transition: color 0.3s;
       font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
     }
     
     .contact-item a:hover {
@@ -540,6 +543,7 @@
       
       section {
         margin-bottom: 3.5rem;
+        padding: 1.5rem;
       }
       
       h1 {
@@ -679,7 +683,6 @@
   </header>
 
   <main>
-    
     <section id="design">
       <h2>Graphic Design Projects</h2>
       <div class="design-gallery">
@@ -760,8 +763,10 @@
           <div class="design-info">
             <p>Brand flyer for Simple_E clothing</p>
             <div class="design-tool">Canva</div>
-
-             <div class="design-item" data-image="img/3.jpg" data-caption="Brand flyer for Archibald Phone Deals · Canva">
+          </div>
+        </div>
+        
+        <div class="design-item" data-image="img/3.jpg" data-caption="Brand flyer for Archibald Phone Deals · Canva">
           <div class="design-image">
             <img src="img/3.jpg" alt="Brand flyer for Archibald Phone Deals">
           </div>
@@ -942,7 +947,7 @@
       lightboxImage.src = imageUrl;
       lightboxCaption.textContent = caption;
       lightbox.classList.add('active');
-      document.body.style.overflow = 'hidden'; // Prevent scrolling
+      document.body.style.overflow = 'hidden';
       currentIndex = index;
     }
     
@@ -956,7 +961,7 @@
     // Close lightbox
     lightboxClose.addEventListener('click', () => {
       lightbox.classList.remove('active');
-      document.body.style.overflow = 'auto'; // Enable scrolling
+      document.body.style.overflow = 'auto';
     });
     
     // Close lightbox when clicking outside the image
