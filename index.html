@@ -130,7 +130,6 @@
       color: var(--primary);
     }
     
-    /* Design gallery - First section */
     .design-gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -507,7 +506,7 @@
       opacity: 1;
     }
     
-    /* Mobile Optimizations */
+   
     @media (max-width: 768px) {
       /* Mobile navigation */
       nav {
@@ -529,7 +528,7 @@
         display: block;
       }
       
-      /* Main content adjustments */
+
       main {
         padding: 1.5rem 1rem;
       }
@@ -851,7 +850,7 @@
     </div>
     
     <div class="copyright">
-      &copy; 2023 Isaac Saltson. All rights reserved.
+      &copy; 2025 Isaac Saltson. All rights reserved.
     </div>
   </footer>
 
@@ -875,7 +874,6 @@
   </div>
 
   <script>
-    // Mobile menu toggle
     const menuToggle = document.getElementById('menuToggle');
     const mainNav = document.getElementById('mainNav');
     
@@ -892,7 +890,7 @@
       }
     });
     
-    // Close menu when clicking a link
+ 
     const navLinks = document.querySelectorAll('nav a');
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
@@ -903,7 +901,7 @@
       });
     });
     
-    // Smooth scrolling for anchor links
+    
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -918,7 +916,7 @@
       });
     });
     
-    // Lightbox functionality
+  
     const lightbox = document.getElementById('lightbox');
     const lightboxImage = document.getElementById('lightboxImage');
     const lightboxCaption = document.getElementById('lightboxCaption');
@@ -926,11 +924,11 @@
     const lightboxPrev = document.getElementById('lightboxPrev');
     const lightboxNext = document.getElementById('lightboxNext');
     
-    // Get all design items that open the lightbox
+   
     const galleryItems = document.querySelectorAll('.design-item');
     let currentIndex = 0;
     
-    // Function to open lightbox
+    
     function openLightbox(index) {
       const item = galleryItems[index];
       const imageUrl = item.getAttribute('data-image');
@@ -943,20 +941,18 @@
       currentIndex = index;
     }
     
-    // Add click event to each gallery item
     galleryItems.forEach((item, index) => {
       item.addEventListener('click', () => {
         openLightbox(index);
       });
     });
     
-    // Close lightbox
     lightboxClose.addEventListener('click', () => {
       lightbox.classList.remove('active');
       document.body.style.overflow = 'auto';
     });
     
-    // Close lightbox when clicking outside the image
+
     lightbox.addEventListener('click', (e) => {
       if (e.target === lightbox) {
         lightbox.classList.remove('active');
@@ -964,7 +960,7 @@
       }
     });
     
-    // Navigation between images
+  
     lightboxPrev.addEventListener('click', (e) => {
       e.stopPropagation();
       currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
@@ -977,7 +973,6 @@
       openLightbox(currentIndex);
     });
     
-    // Keyboard navigation
     document.addEventListener('keydown', (e) => {
       if (lightbox.classList.contains('active')) {
         if (e.key === 'Escape') {
