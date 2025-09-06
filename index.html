@@ -506,7 +506,33 @@
       opacity: 1;
     }
     
-   
+    /* Toggle Gallery Button */
+    .toggle-gallery {
+      display: block;
+      margin: 2.5rem auto 0;
+      padding: 1rem 2.5rem;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .toggle-gallery:hover {
+      background: var(--accent);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    
+    /* Hidden design items */
+    .design-item.hidden {
+      display: none;
+    }
+    
     @media (max-width: 768px) {
       /* Mobile navigation */
       nav {
@@ -528,7 +554,6 @@
         display: block;
       }
       
-
       main {
         padding: 1.5rem 1rem;
       }
@@ -707,7 +732,7 @@
           </div>
         </div>
 
-         <div class="design-item" data-image="img/BOAMAH.jpg" data-caption="Farewell Flyer · Canva">
+        <div class="design-item hidden" data-image="img/BOAMAH.jpg" data-caption="Farewell Flyer · Canva">
           <div class="design-image">
             <img src="img/BOAMAH.jpg" alt="Farewell flyer">
           </div>
@@ -717,7 +742,7 @@
           </div>
         </div>
         
-        <div class="design-item" data-image="img/2.jpg" data-caption="Brand flyer for Capo Phone Deals · Canva">
+        <div class="design-item hidden" data-image="img/2.jpg" data-caption="Brand flyer for Capo Phone Deals · Canva">
           <div class="design-image">
             <img src="img/2.jpg" alt="Phone Deals Flyer">
           </div>
@@ -727,7 +752,7 @@
           </div>
         </div>
         
-         <div class="design-item" data-image="img/TM (3).jpg" data-caption="CONCERT FLYER · Canva">
+        <div class="design-item hidden" data-image="img/TM (3).jpg" data-caption="CONCERT FLYER · Canva">
           <div class="design-image">
             <img src="img/TM (3).jpg" alt="CONCERT FLYER">
           </div>
@@ -737,7 +762,7 @@
           </div>
         </div>
 
-         <div class="design-item" data-image="img/estate.jpg" data-caption="Flyer For Methodist Church Ghana · Canva">
+        <div class="design-item hidden" data-image="img/estate.jpg" data-caption="Flyer For Methodist Church Ghana · Canva">
           <div class="design-image">
             <img src="img/estate.jpg" alt="Church Event Flyer">
           </div>
@@ -747,7 +772,7 @@
           </div>
         </div>
         
-        <div class="design-item" data-image="img/shadow.jpg" data-caption="Brand flyer for shadow's foothub · Canva">
+        <div class="design-item hidden" data-image="img/shadow.jpg" data-caption="Brand flyer for shadow's foothub · Canva">
           <div class="design-image">
             <img src="img/shadow.jpg" alt="Foothub Flyer">
           </div>
@@ -757,7 +782,7 @@
           </div>
         </div>
         
-        <div class="design-item" data-image="img/poster1.jpg" data-caption="Brand flyer concept for Thrify Jess · Canva">
+        <div class="design-item hidden" data-image="img/poster1.jpg" data-caption="Brand flyer concept for Thrify Jess · Canva">
           <div class="design-image">
             <img src="img/poster1.jpg" alt="Fashion Flyer">
           </div>
@@ -767,7 +792,7 @@
           </div>
         </div>
         
-        <div class="design-item" data-image="img/1.jpg" data-caption="Brand flyer for Simple_E clothing · Canva">
+        <div class="design-item hidden" data-image="img/1.jpg" data-caption="Brand flyer for Simple_E clothing · Canva">
           <div class="design-image">
             <img src="img/1.jpg" alt="Clothing Brand Flyer">
           </div>
@@ -777,7 +802,7 @@
           </div>
         </div>
         
-        <div class="design-item" data-image="img/3.jpg" data-caption="Brand flyer for Archibald Phone Deals · Canva">
+        <div class="design-item hidden" data-image="img/3.jpg" data-caption="Brand flyer for Archibald Phone Deals · Canva">
           <div class="design-image">
             <img src="img/3.jpg" alt="Brand flyer for Archibald Phone Deals">
           </div>
@@ -787,6 +812,10 @@
           </div>
         </div>
       </div>
+      
+      <button class="toggle-gallery" id="toggleGallery">
+        <i class="fas fa-images"></i> Show More Designs
+      </button>
     </section>
     
     <!-- Excel & PowerPoint  -->
@@ -847,8 +876,13 @@
       </div>
       
       <div class="contact-item">
-        <i class="fas fa-phone"></i>
-        <div>+233 547 595 920 / +233 505 648 769</div>
+        <i class="fab fa-whatsapp"></i>
+        <a href="https://wa.me/233547595920" target="_blank">+233 547 595 920</a>
+      </div>
+      
+      <div class="contact-item">
+        <i class="fab fa-whatsapp"></i>
+        <a href="https://wa.me/233505648769" target="_blank">+233 505 648 769</a>
       </div>
       
       <div class="contact-item">
@@ -910,7 +944,6 @@
       }
     });
     
- 
     const navLinks = document.querySelectorAll('nav a');
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
@@ -920,7 +953,6 @@
         icon.classList.add('fa-bars');
       });
     });
-    
     
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
@@ -936,7 +968,6 @@
       });
     });
     
-  
     const lightbox = document.getElementById('lightbox');
     const lightboxImage = document.getElementById('lightboxImage');
     const lightboxCaption = document.getElementById('lightboxCaption');
@@ -944,10 +975,8 @@
     const lightboxPrev = document.getElementById('lightboxPrev');
     const lightboxNext = document.getElementById('lightboxNext');
     
-   
     const galleryItems = document.querySelectorAll('.design-item');
     let currentIndex = 0;
-    
     
     function openLightbox(index) {
       const item = galleryItems[index];
@@ -972,7 +1001,6 @@
       document.body.style.overflow = 'auto';
     });
     
-
     lightbox.addEventListener('click', (e) => {
       if (e.target === lightbox) {
         lightbox.classList.remove('active');
@@ -980,7 +1008,6 @@
       }
     });
     
-  
     lightboxPrev.addEventListener('click', (e) => {
       e.stopPropagation();
       currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
@@ -1008,6 +1035,29 @@
           openLightbox(currentIndex);
         }
       }
+    });
+    
+    // Toggle gallery functionality
+    const toggleGalleryBtn = document.getElementById('toggleGallery');
+    const hiddenDesignItems = document.querySelectorAll('.design-item.hidden');
+    let isExpanded = false;
+    
+    toggleGalleryBtn.addEventListener('click', () => {
+      if (isExpanded) {
+        // Collapse the gallery
+        hiddenDesignItems.forEach(item => {
+          item.classList.add('hidden');
+        });
+        toggleGalleryBtn.innerHTML = '<i class="fas fa-images"></i> Show More Designs';
+      } else {
+        // Expand the gallery
+        hiddenDesignItems.forEach(item => {
+          item.classList.remove('hidden');
+        });
+        toggleGalleryBtn.innerHTML = '<i class="fas fa-images"></i> Show Less Designs';
+      }
+      
+      isExpanded = !isExpanded;
     });
   </script>
 </body>
