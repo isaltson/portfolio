@@ -186,10 +186,14 @@
       line-height: 1.4;
     }
     
-    /* Excel Section - Second section */
+    /* Excel Section - Now displayed with highlight and non-clickable */
     #excel {
       text-align: center;
-      padding: 2.5rem 0;
+      padding: 2.5rem;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      border-left: 6px solid var(--secondary);
     }
     
     #excel p {
@@ -221,85 +225,15 @@
       transition: all 0.3s ease;
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
       font-size: 1.1rem;
+      cursor: default;
+      opacity: 0.9;
     }
     
     .excel-link:hover {
-      background: var(--accent);
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    }
-    
-    /* Web Gallery - Last section */
-    .web-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2.2rem;
-    }
-    
-    .project {
-      background: white;
-      border-radius: 12px;
-      padding: 2.2rem;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      transition: all 0.4s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .project:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-    }
-    
-    .project h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1.2rem;
-      color: var(--primary);
-      padding-right: 100px;
-    }
-    
-    .project p {
-      color: var(--text-light);
-      margin-bottom: 1.8rem;
-      font-size: 1.05rem;
-      line-height: 1.6;
-    }
-    
-    .project a {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      padding: 0.9rem 1.9rem;
       background: var(--primary);
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: 600;
-      transition: all 0.3s;
-      position: relative;
-      z-index: 2;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    
-    .project a:hover {
-      background: var(--accent);
-      transform: translateY(-3px);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-    }
-    
-    .tech-badge {
-      position: absolute;
-      top: 0;
-      right: 0;
-      background: var(--secondary);
-      color: var(--primary);
-      padding: 0.7rem 1.3rem;
-      font-size: 0.9rem;
-      font-weight: 700;
-      border-radius: 0 12px 0 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transform: none;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      cursor: default;
     }
     
     /* Footer */
@@ -496,32 +430,7 @@
       opacity: 1;
     }
     
-    /* Toggle Gallery Button */
-    .toggle-gallery {
-      display: block;
-      margin: 2.5rem auto 0;
-      padding: 1rem 2.5rem;
-      background: var(--primary);
-      color: white;
-      border: none;
-      border-radius: 30px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-    
-    .toggle-gallery:hover {
-      background: var(--accent);
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    }
-    
-    /* Hidden design items */
-    .design-item.hidden {
-      display: none;
-    }
+    /* Removed toggle gallery button styles since it's removed */
     
     @media (max-width: 768px) {
       /* Mobile navigation */
@@ -561,7 +470,7 @@
         margin-bottom: 2rem;
       }
       
-      /*  on mobile */
+      /* Design gallery on mobile */
       .design-gallery {
         grid-template-columns: repeat(2, 1fr);
         gap: 1.2rem;
@@ -578,21 +487,6 @@
       
       .design-info p {
         font-size: 0.95rem;
-      }
-      
-      /* Web gallery */
-      .web-gallery {
-        grid-template-columns: 1fr;
-        gap: 1.8rem;
-      }
-      
-      .project {
-        padding: 1.8rem;
-      }
-      
-      .project h3 {
-        font-size: 1.4rem;
-        padding-right: 80px;
       }
       
       /* Contact info */
@@ -631,9 +525,13 @@
         right: 20px;
         font-size: 2.2rem;
       }
+      
+      #excel {
+        padding: 1.8rem 1.2rem;
+      }
     }
     
-    /* Desktop  */
+    /* Desktop styles */
     @media (min-width: 769px) {
       .contact-info {
         grid-template-columns: repeat(2, 1fr);
@@ -683,7 +581,6 @@
       <nav id="mainNav">
         <a href="#design" class="active">Graphic Design</a>
         <a href="#excel">Excel & PowerPoint</a>
-        <a href="#web">Web Development</a>
       </nav>
     </div>
   </header>
@@ -719,7 +616,7 @@
           </div>
         </div>
 
-        <div class="design-item hidden" data-image="img/BOAMAH.jpg" data-caption="Farewell Flyer">
+        <div class="design-item" data-image="img/BOAMAH.jpg" data-caption="Farewell Flyer">
           <div class="design-image">
             <img src="img/BOAMAH.jpg" alt="Farewell flyer">
           </div>
@@ -728,7 +625,7 @@
           </div>
         </div>
         
-        <div class="design-item hidden" data-image="img/ROOM6.jpg" data-caption="Brand flyer for room 6 tv series">
+        <div class="design-item" data-image="img/ROOM6.jpg" data-caption="Brand flyer for room 6 tv series">
           <div class="design-image">
             <img src="img/ROOM6.jpg" alt="">
           </div>
@@ -737,7 +634,7 @@
           </div>
         </div>
         
-        <div class="design-item hidden" data-image="img/TM (3).jpg" data-caption="CONCERT FLYER">
+        <div class="design-item" data-image="img/TM (3).jpg" data-caption="CONCERT FLYER">
           <div class="design-image">
             <img src="img/TM (3).jpg" alt="CONCERT FLYER">
           </div>
@@ -746,7 +643,7 @@
           </div>
         </div>
 
-        <div class="design-item hidden" data-image="img/estate.jpg" data-caption="Flyer For Methodist Church Ghana">
+        <div class="design-item" data-image="img/estate.jpg" data-caption="Flyer For Methodist Church Ghana">
           <div class="design-image">
             <img src="img/estate.jpg" alt="Church Event Flyer">
           </div>
@@ -755,7 +652,7 @@
           </div>
         </div>
         
-        <div class="design-item hidden" data-image="img/shadow.jpg" data-caption="Brand flyer for shadow's foothub">
+        <div class="design-item" data-image="img/shadow.jpg" data-caption="Brand flyer for shadow's foothub">
           <div class="design-image">
             <img src="img/shadow.jpg" alt="Foothub Flyer">
           </div>
@@ -764,7 +661,7 @@
           </div>
         </div>
         
-        <div class="design-item hidden" data-image="img/poster1.jpg" data-caption="Brand flyer concept for Thrify Jess">
+        <div class="design-item" data-image="img/poster1.jpg" data-caption="Brand flyer concept for Thrify Jess">
           <div class="design-image">
             <img src="img/poster1.jpg" alt="Fashion Flyer">
           </div>
@@ -773,7 +670,7 @@
           </div>
         </div>
         
-        <div class="design-item hidden" data-image="img/MABELLA (1).jpg" data-caption="">
+        <div class="design-item" data-image="img/MABELLA (1).jpg" data-caption="">
           <div class="design-image">
             <img src="img/MABELLA (1).jpg" alt="Brand Flyer">
           </div>
@@ -782,7 +679,7 @@
           </div>
         </div>
         
-        <div class="design-item hidden" data-image="img/jubilee.jpg" data-caption="Flyer For Methodist Church Ghana">
+        <div class="design-item" data-image="img/jubilee.jpg" data-caption="Flyer For Methodist Church Ghana">
           <div class="design-image">
             <img src="img/jubilee.jpg" alt="church flyer">
           </div>
@@ -791,58 +688,20 @@
           </div>
         </div>
       </div>
-      
-      <button class="toggle-gallery" id="toggleGallery">
-        <i class="fas fa-images"></i> Show More Designs
-      </button>
     </section>
     
-    <!-- Excel & PowerPoint  -->
+    <!-- Excel & PowerPoint Section - Now highlighted and non-clickable -->
     <section id="excel">
       <h2>Excel & PowerPoint</h2>
       <p>Explore my data visualization and presentation projects. I create powerful Excel dashboards and engaging PowerPoint presentations that transform complex data into compelling visual stories.</p>
       
       <div class="excel-links">
-        <a href="#" class="excel-link">
-          <i class="fas fa-file-excel"></i> View Excel Dashboards
-        </a>
-        <a href="#" class="excel-link">
-          <i class="fas fa-file-powerpoint"></i> View PowerPoint Slides
-        </a>
-      </div>
-    </section>
-    
-    <!-- Web Development -->
-    <section id="web">
-      <h2>Web Development Projects</h2>
-
-      <div class="web-gallery">
-        <article class="project">
-          <div class="tech-badge">HTML + PHP + JS</div>
-          <h3>Secure File Sharing Platform</h3>
-          <p>A web-based file transfer app that lets users upload and download files securely using unique tokens, accessible from any device with a modern browser.</p>
-          <a href="https://secure-file-sharer.wuaze.com" target="_blank">
-            <i class="fas fa-external-link-alt"></i> Live Demo
-          </a>
-        </article>
-
-        <article class="project">
-          <div class="tech-badge">Node.js + Socket.io</div>
-          <h3>Real-Time Chat Application</h3>
-          <p>Lightweight web chat app with real-time messaging using WebSockets, designed for secure and instant communication between users with minimal latency.</p>
-          <a href="https://chat-app-9xnr.onrender.com" target="_blank">
-            <i class="fas fa-external-link-alt"></i> Live Demo
-          </a>
-        </article>
-
-        <article class="project">
-          <div class="tech-badge">Py + TG Bot API</div>
-          <h3>Telegram File Transfer Bot</h3>
-          <p>A simple and secure Telegram bot that lets users send files from one device and retrieve them on another using a unique token for seamless file sharing.</p>
-          <a href="https://t.me/ezFileshare_bot" target="_blank">
-            <i class="fas fa-external-link-alt"></i> Live Demo
-          </a>
-        </article>
+        <div class="excel-link">
+          <i class="fas fa-file-excel"></i> Excel Dashboards
+        </div>
+        <div class="excel-link">
+          <i class="fas fa-file-powerpoint"></i> PowerPoint Slides
+        </div>
       </div>
     </section>
   </main>
@@ -1016,27 +875,13 @@
       }
     });
     
-    // Toggle gallery functionality
-    const toggleGalleryBtn = document.getElementById('toggleGallery');
-    const hiddenDesignItems = document.querySelectorAll('.design-item.hidden');
-    let isExpanded = false;
-    
-    toggleGalleryBtn.addEventListener('click', () => {
-      if (isExpanded) {
-        // Collapse the gallery
-        hiddenDesignItems.forEach(item => {
-          item.classList.add('hidden');
-        });
-        toggleGalleryBtn.innerHTML = '<i class="fas fa-images"></i> Show More Designs';
-      } else {
-        // Expand the gallery
-        hiddenDesignItems.forEach(item => {
-          item.classList.remove('hidden');
-        });
-        toggleGalleryBtn.innerHTML = '<i class="fas fa-images"></i> Show Less Designs';
-      }
-      
-      isExpanded = !isExpanded;
+    // Prevent clicking on Excel/PowerPoint links
+    const excelLinks = document.querySelectorAll('.excel-link');
+    excelLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+      });
     });
   </script>
 </body>
